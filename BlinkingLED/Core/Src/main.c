@@ -23,6 +23,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+SPI_HandleTypeDef hspi;
+DMA_HandleTypeDef spi_tx;
+DMA_HandleTypeDef spi_rx;
 
 /* USER CODE END Includes */
 
@@ -48,8 +51,10 @@
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-static void MX_GPIO_Init(void);
 /* USER CODE BEGIN PFP */
+static void MX_SPI_Init(void);
+static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 
 /* USER CODE END PFP */
 
@@ -85,8 +90,9 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-  MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
+
+  MX_SPI_Init();
 
   /* USER CODE END 2 */
 
@@ -98,12 +104,6 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  pin_state = !pin_state;
-	  // write pin state
-	  // NOTE: You can in turn use HAL_GPIO_TogglePin
-	  HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, pin_state);
-	  // synchronous delay for 500 ms
-	  HAL_Delay(counter++ % 2 == 0 ? 100 : 1000);
   }
   /* USER CODE END 3 */
 }
@@ -146,31 +146,22 @@ void SystemClock_Config(void)
   }
 }
 
-/**
-  * @brief GPIO Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_GPIO_Init(void)
-{
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
+/* USER CODE BEGIN 4 */
 
-  /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOA_CLK_ENABLE();
+static void MX_SPI_Init(void) {
+	hspi.Instance = SPI1;
+	hspi.Init.Mode = SPI_MODE_MASTER;
+	hspi.Init.Direction = SPI_DIRECTION_2LINES;
+	hspi.Init.DataSize = SPI_DATASIZE_16BIT;
+}
 
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin : LED2_Pin */
-  GPIO_InitStruct.Pin = LED2_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LED2_GPIO_Port, &GPIO_InitStruct);
+static void MX_GPIO_Init(void) {
 
 }
 
-/* USER CODE BEGIN 4 */
+static void MX_DMA_Init(void) {
+
+}
 
 /* USER CODE END 4 */
 
