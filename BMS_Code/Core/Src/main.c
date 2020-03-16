@@ -23,7 +23,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "string.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -37,7 +37,8 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-#define LENGTH 16
+#define LENGTH 1
+#define RX_LENGTH 1
 
 /* USER CODE END PM */
 
@@ -58,8 +59,8 @@ uint8_t buffer_rx[LENGTH];
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
-static void MX_SPI1_Init(void);
 static void MX_USART2_UART_Init(void);
+static void MX_SPI1_Init(void);
 /* USER CODE BEGIN PFP */
 /* USER CODE END PFP */
 
@@ -72,6 +73,9 @@ static void MX_USART2_UART_Init(void);
   * @brief  The application entry point.
   * @retval int
   */
+
+int sent = 0;
+int count = 0;
 int main(void)
 {
   /* USER CODE BEGIN 1 */
@@ -97,30 +101,76 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
-  MX_SPI1_Init();
   MX_USART2_UART_Init();
+  MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
 
-  for (int i = 1; i < LENGTH - 1; ++i) {
-	  buffer_tx[i] = i;
-  }
-  buffer_tx[0] = 255;
-  buffer_tx[LENGTH - 1] = 0;
+  buffer_tx[0] = 0x0F | 0x80;
+  buffer_tx[1] = 0x0F | 0x80;
+  /*buffer_tx[2] = 30;
+  buffer_tx[3] = 40;
+  buffer_tx[4] = 50;
+  buffer_tx[5] = 60;
+  buffer_tx[6] = 70;
+  buffer_tx[7] = 80;*/
 
-  HAL_SPI_Transmit_DMA(&hspi1, buffer_tx, LENGTH);
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
+
+  //HAL_SPI_Transmit_DMA(&hspi1, buffer_tx, 1);
+
   while (1)
   {
+  /* USER CODE BEGIN WHILE */
+
+	/*if (!sent) {
+		sent = 1;
+		HAL_SPI_TransmitReceive_DMA(&hspi1, buffer_tx, buffer_rx, LENGTH);
+		buffer_tx[0] += 1;
+		buffer_tx[0] %= 128;
+	}*/
+
+	HAL_SPI_TransmitReceive_DMA(&hspi1, buffer_tx, buffer_rx, 1);
+
+	HAL_Delay(200);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }
+
+/* USER CODE BEGIN CUSTOM */
+
+void encode(uint8_t val, char* msg) {
+	msg[2] = val % 10 + '0';
+	val /= 10;
+	msg[1] = val % 10 + '0';
+	val /= 10;
+	msg[0] = val % 10 + '0';
+}
+
+void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi) {
+	char msg1[9];
+	uint8_t val1 = hspi->pRxBuffPtr[0];
+	uint8_t val2 = hspi->pRxBuffPtr[1];
+	encode(val1, msg1);
+	encode(val2, msg1 + 4);
+	msg1[3] = ' ';
+	msg1[7] = '\n';
+	msg1[8] = '\0';
+
+	HAL_UART_Transmit(&huart2, (uint8_t*)msg1, strlen(msg1), 0xFFFF);
+}
+
+void HAL_SPI_ErrorCallback(SPI_HandleTypeDef *hspi) {
+}
+
+/* USER CODE END CUSTOM */
+
+
 
 /**
   * @brief System Clock Configuration
@@ -180,10 +230,10 @@ static void MX_SPI1_Init(void)
   hspi1.Init.Mode = SPI_MODE_MASTER;
   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
-  hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
+  hspi1.Init.CLKPolarity = SPI_POLARITY_HIGH;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_256;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -228,8 +278,9 @@ static void MX_USART2_UART_Init(void)
   /* USER CODE BEGIN USART2_Init 2 */
 
   /* USER CODE END USART2_Init 2 */
-
 }
+
+
 
 /** 
   * Enable DMA controller clock

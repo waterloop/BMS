@@ -7,21 +7,21 @@
  */
 
 #include <SPI.h>
-#define LENGTH 14
+#define LENGTH 1024
 
-byte buf[LENGTH];
-volatile boolean reading;
+volatile byte buf[LENGTH];
 volatile boolean finish_receive = false;
-int pos = 0;
+volatile int pos = 0;
+volatile int pos_printed = 0;
 
 
 void setup (void)
 {
-  pinMode(10, OUTPUT);
+  pinMode(MOSI,INPUT);
+  pinMode(SCK,INPUT);
+  pinMode(MISO,OUTPUT);
+  pinMode(SS, INPUT);
   Serial.begin (115200);   // debugging
-
-  // have to send on master in, *slave out*
-  pinMode(MISO, OUTPUT);
   
   // turn on SPI in slave mode
   SPCR |= _BV(SPE);
@@ -36,28 +36,23 @@ void setup (void)
 ISR (SPI_STC_vect)
 {
   byte c = SPDR;
-  Serial.println(c);
-  if (c == 0) {
+  buf[pos++] = c;
+  pos %= LENGTH;
+  /*if (c == 0) {
     reading = false;
     finish_receive = true;
   }
   if (reading) {
       if (pos < LENGTH) buf[pos++] = c;
   }
-  if (c == 255) reading = true;
+  if (c == 255) reading = true;*/
 }  // end of interrupt routine SPI_STC_vect
 
 // main loop - wait for flag set in interrupt routine
 void loop (void)
 {
-  if (finish_receive) {
-   /* for (int i = 0; i < LENGTH; ++i) {
-      Serial.print(buf[pos]);
-      Serial.print(" ");
-    }
-    Serial.println("");*/
-    finish_receive = false;
+  while (pos != pos_printed) {
+     Serial.println(buf[pos_printed ++]);
+     pos_printed %= LENGTH;
   }
-  
-  delay(100);
 }

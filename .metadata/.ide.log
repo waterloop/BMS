@@ -2397,3 +2397,925 @@
 2020-03-12 17:25:50,341 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1425mS.
 2020-03-12 17:25:50,342 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 1mS.
 2020-03-12 17:25:50,342 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 22:21:44,462 [INFO] MainUpdater:2230 - connection check result : 10
+2020-03-12 22:21:44,749 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-03-12 22:21:44,749 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-03-12 22:21:44,750 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-03-12 22:21:44,752 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 654819104 Bytes (1073741824)
+2020-03-12 22:21:44,752 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-03-12 22:21:44,752 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-03-12 22:21:44,752 [INFO] OpenFileManager:274 - Change cursor
+2020-03-12 22:21:44,759 [INFO] RulesReader:52 - Compatibility file has been processed (208 Rules)
+2020-03-12 22:21:45,251 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (SPI1_RX) currently not set
+2020-03-12 22:21:45,251 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (SPI1_RX) currently not set
+2020-03-12 22:21:45,251 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (SPI1_RX) currently not set
+2020-03-12 22:21:45,251 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (SPI1_RX) currently not set
+2020-03-12 22:21:45,251 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (SPI1_RX) currently not set
+2020-03-12 22:21:45,251 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (SPI1_RX) currently not set
+2020-03-12 22:21:45,251 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (SPI1_RX) currently not set
+2020-03-12 22:21:45,251 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (SPI1_RX) currently not set
+2020-03-12 22:21:45,251 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (SPI1_RX) currently not set
+2020-03-12 22:21:45,251 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (SPI1_RX) currently not set
+2020-03-12 22:21:45,251 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (SPI1_TX) currently not set
+2020-03-12 22:21:45,252 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (SPI1_TX) currently not set
+2020-03-12 22:21:45,252 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (SPI1_TX) currently not set
+2020-03-12 22:21:45,252 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (SPI1_TX) currently not set
+2020-03-12 22:21:45,252 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (SPI1_TX) currently not set
+2020-03-12 22:21:45,252 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (SPI1_TX) currently not set
+2020-03-12 22:21:45,252 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (SPI1_TX) currently not set
+2020-03-12 22:21:45,252 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (SPI1_TX) currently not set
+2020-03-12 22:21:45,252 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (SPI1_TX) currently not set
+2020-03-12 22:21:45,252 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (SPI1_TX) currently not set
+2020-03-12 22:21:45,327 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 456213064 Bytes (1073741824)
+2020-03-12 22:21:45,329 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1583289439911]
+2020-03-12 22:21:45,329 [INFO] ThirdPartyModel:521 - Component with status : MCU_INCOMPATIBLE for condition : OS Tick GTIM id : 1583289439238
+2020-03-12 22:21:45,329 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1583289442487, 1583289439994]
+2020-03-12 22:21:45,347 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 5.0.0
+2020-03-12 22:21:45,347 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 1.1.0
+2020-03-12 22:21:45,347 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 4.1.0
+2020-03-12 22:21:45,347 [INFO] ThirdParty:899 - CMSIS Pack Vendor :ARM CMSIS 5.6.0
+2020-03-12 22:21:45,347 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.13.0
+2020-03-12 22:21:45,347 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 1.5.2
+2020-03-12 22:21:45,347 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.1.0
+2020-03-12 22:21:45,347 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-03-12 22:21:45,347 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.0.0
+2020-03-12 22:21:45,347 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 5.0.0
+2020-03-12 22:21:45,347 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 1.0.0
+2020-03-12 22:21:45,386 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-03-12 22:21:45,386 [INFO] PinOutPanel:1420 - setPackage(STM32F401RETx,LQFP64)
+2020-03-12 22:21:45,478 [INFO] UtilMem:74 - Before build in PCC Used Memory: 522573224 Bytes (1073741824)
+2020-03-12 22:21:45,534 [INFO] SharedServices:71 - Folder for power plug-in: /Users/kevinbai/.stm32cubemx/plugins/power
+2020-03-12 22:21:45,547 [INFO] SharedServices:71 - Folder for power plug-in: /Users/kevinbai/.stm32cubemx/plugins/power
+2020-03-12 22:21:45,556 [INFO] SharedServices:71 - Folder for power plug-in: /Users/kevinbai/.stm32cubemx/plugins/power
+2020-03-12 22:21:45,557 [INFO] SharedServices:71 - Folder for power plug-in: /Users/kevinbai/.stm32cubemx/plugins/power
+2020-03-12 22:21:45,576 [INFO] UtilMem:74 - After build in PCC Used Memory: 563989936 Bytes (1073741824)
+2020-03-12 22:21:45,581 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,582 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,582 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,582 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,582 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,582 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,582 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,582 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,583 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,583 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,583 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,583 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,583 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,583 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,583 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,583 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,583 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,584 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,584 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,584 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,584 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,584 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,584 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,584 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,584 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,584 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,584 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,585 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,585 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,585 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,585 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,585 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,585 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,585 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,585 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,586 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,586 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,586 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 22:21:45,608 [INFO] OpenFileManager:294 - Restore cursor
+2020-03-12 22:22:25,295 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,469x418,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-03-12 22:22:41,125 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,469x418,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-03-12 22:24:09,127 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 537495568 Bytes (1073741824)
+2020-03-12 22:24:11,310 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 549027752 Bytes (1073741824)
+2020-03-12 22:24:11,434 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 587302816 Bytes (1073741824)
+2020-03-12 22:24:11,545 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SPI
+2020-03-12 22:24:11,545 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-03-12 22:24:11,546 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: USART
+2020-03-12 22:24:11,546 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-03-12 22:24:11,546 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-03-12 22:24:11,546 [INFO] CodeGenerator:603 - code generatio: config db path: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db/
+2020-03-12 22:24:11,651 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/license.tmp_save
+2020-03-12 22:24:11,685 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/license.tmp
+2020-03-12 22:24:11,713 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/gpio.tmp_save
+2020-03-12 22:24:11,751 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/gpio.tmp
+2020-03-12 22:24:11,773 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 22:24:11,774 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for SPI
+2020-03-12 22:24:11,774 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 22:24:11,774 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 22:24:11,774 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for USART
+2020-03-12 22:24:11,775 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 22:24:11,775 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-03-12 22:24:11,775 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 22:24:11,779 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/stm32f4xx_it.c_save
+2020-03-12 22:24:11,827 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/stm32f4xx_it.c
+2020-03-12 22:24:11,829 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/stm32f4xx_it.h_save
+2020-03-12 22:24:11,867 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/stm32f4xx_it.h
+2020-03-12 22:24:11,873 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/stm32f4xx_hal_msp.c_save
+2020-03-12 22:24:11,933 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/stm32f4xx_hal_msp.c
+2020-03-12 22:24:11,936 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/system.tmp_save
+2020-03-12 22:24:11,969 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/system.tmp
+2020-03-12 22:24:11,973 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/stm32f4xx_hal_conf.h_save
+2020-03-12 22:24:12,018 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/stm32f4xx_hal_conf.h
+2020-03-12 22:24:12,023 [WARN] IPConfigManager:2701 - IP not found : gpio
+2020-03-12 22:24:12,023 [WARN] CodeGenerator:2649 - IP not found : gpio
+2020-03-12 22:24:12,025 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/main.h_save
+2020-03-12 22:24:12,063 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/main.h
+2020-03-12 22:24:12,066 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/main.c_save
+2020-03-12 22:24:12,120 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/main.c
+2020-03-12 22:24:12,644 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 120mS.
+2020-03-12 22:24:12,645 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-03-12 22:24:12,791 [INFO] ConfigFileManager:1066 - The Die is : DIE433
+2020-03-12 22:24:13,483 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 838mS.
+2020-03-12 22:24:13,483 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 22:24:13,484 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 22:27:08,112 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 628282160 Bytes (1073741824)
+2020-03-12 22:27:09,221 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 644010800 Bytes (1073741824)
+2020-03-12 22:27:09,341 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 655545136 Bytes (1073741824)
+2020-03-12 22:27:09,467 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SPI
+2020-03-12 22:27:09,467 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-03-12 22:27:09,467 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: USART
+2020-03-12 22:27:09,467 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-03-12 22:27:09,467 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-03-12 22:27:09,468 [INFO] CodeGenerator:603 - code generatio: config db path: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db/
+2020-03-12 22:27:09,591 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/license.tmp_save
+2020-03-12 22:27:09,643 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/license.tmp
+2020-03-12 22:27:09,652 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/gpio.tmp_save
+2020-03-12 22:27:09,698 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/gpio.tmp
+2020-03-12 22:27:09,721 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 22:27:09,722 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for SPI
+2020-03-12 22:27:09,722 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 22:27:09,722 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 22:27:09,723 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for USART
+2020-03-12 22:27:09,723 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 22:27:09,723 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-03-12 22:27:09,723 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 22:27:09,727 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/stm32f4xx_it.c_save
+2020-03-12 22:27:09,779 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/stm32f4xx_it.c
+2020-03-12 22:27:09,782 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/stm32f4xx_it.h_save
+2020-03-12 22:27:09,821 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/stm32f4xx_it.h
+2020-03-12 22:27:09,826 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/stm32f4xx_hal_msp.c_save
+2020-03-12 22:27:09,890 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/stm32f4xx_hal_msp.c
+2020-03-12 22:27:09,892 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/system.tmp_save
+2020-03-12 22:27:09,931 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/system.tmp
+2020-03-12 22:27:09,934 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/stm32f4xx_hal_conf.h_save
+2020-03-12 22:27:09,978 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/stm32f4xx_hal_conf.h
+2020-03-12 22:27:09,984 [WARN] IPConfigManager:2701 - IP not found : gpio
+2020-03-12 22:27:09,984 [WARN] CodeGenerator:2649 - IP not found : gpio
+2020-03-12 22:27:09,987 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/main.h_save
+2020-03-12 22:27:10,031 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/main.h
+2020-03-12 22:27:10,035 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/main.c_save
+2020-03-12 22:27:10,144 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/main.c
+2020-03-12 22:27:10,480 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 73mS.
+2020-03-12 22:27:10,481 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-03-12 22:27:10,627 [INFO] ConfigFileManager:1066 - The Die is : DIE433
+2020-03-12 22:27:11,746 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1265mS.
+2020-03-12 22:27:11,746 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 22:27:11,747 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 23:30:21,189 [INFO] MainUpdater:2230 - connection check result : 10
+2020-03-12 23:30:21,612 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-03-12 23:30:21,612 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-03-12 23:30:21,613 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-03-12 23:30:21,615 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 736125136 Bytes (1073741824)
+2020-03-12 23:30:21,615 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-03-12 23:30:21,615 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-03-12 23:30:21,615 [INFO] OpenFileManager:274 - Change cursor
+2020-03-12 23:30:21,622 [INFO] RulesReader:52 - Compatibility file has been processed (208 Rules)
+2020-03-12 23:30:22,170 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 556388264 Bytes (1073741824)
+2020-03-12 23:30:22,171 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1583289439911]
+2020-03-12 23:30:22,172 [INFO] ThirdPartyModel:521 - Component with status : MCU_INCOMPATIBLE for condition : OS Tick GTIM id : 1583289439238
+2020-03-12 23:30:22,172 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1583289442487, 1583289439994]
+2020-03-12 23:30:22,185 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 5.0.0
+2020-03-12 23:30:22,185 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 1.1.0
+2020-03-12 23:30:22,185 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 4.1.0
+2020-03-12 23:30:22,185 [INFO] ThirdParty:899 - CMSIS Pack Vendor :ARM CMSIS 5.6.0
+2020-03-12 23:30:22,185 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.13.0
+2020-03-12 23:30:22,185 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 1.5.2
+2020-03-12 23:30:22,185 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.1.0
+2020-03-12 23:30:22,185 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-03-12 23:30:22,185 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.0.0
+2020-03-12 23:30:22,185 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 5.0.0
+2020-03-12 23:30:22,185 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 1.0.0
+2020-03-12 23:30:22,221 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-03-12 23:30:22,222 [INFO] PinOutPanel:1420 - setPackage(STM32F401RETx,LQFP64)
+2020-03-12 23:30:22,305 [INFO] UtilMem:74 - Before build in PCC Used Memory: 622220048 Bytes (1073741824)
+2020-03-12 23:30:22,354 [INFO] SharedServices:71 - Folder for power plug-in: /Users/kevinbai/.stm32cubemx/plugins/power
+2020-03-12 23:30:22,367 [INFO] SharedServices:71 - Folder for power plug-in: /Users/kevinbai/.stm32cubemx/plugins/power
+2020-03-12 23:30:22,375 [INFO] SharedServices:71 - Folder for power plug-in: /Users/kevinbai/.stm32cubemx/plugins/power
+2020-03-12 23:30:22,376 [INFO] SharedServices:71 - Folder for power plug-in: /Users/kevinbai/.stm32cubemx/plugins/power
+2020-03-12 23:30:22,392 [INFO] UtilMem:74 - After build in PCC Used Memory: 663640840 Bytes (1073741824)
+2020-03-12 23:30:22,397 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,397 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,397 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,397 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,398 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,398 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,398 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,398 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,398 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,398 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,398 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,398 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,398 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,398 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,398 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,398 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,399 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,399 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,399 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,399 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,399 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,399 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,399 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,399 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,399 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,399 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,399 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,399 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,400 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,400 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,400 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,400 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,400 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,400 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,400 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,400 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,400 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,400 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 23:30:22,416 [INFO] OpenFileManager:294 - Restore cursor
+2020-03-12 23:30:42,773 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-03-12 23:31:12,645 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 761126152 Bytes (1073741824)
+2020-03-12 23:31:13,514 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 772134160 Bytes (1073741824)
+2020-03-12 23:31:13,628 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 784194824 Bytes (1073741824)
+2020-03-12 23:31:13,738 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SPI
+2020-03-12 23:31:13,738 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-03-12 23:31:13,738 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: USART
+2020-03-12 23:31:13,738 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DMA
+2020-03-12 23:31:13,738 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-03-12 23:31:13,738 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-03-12 23:31:13,739 [INFO] CodeGenerator:603 - code generatio: config db path: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db/
+2020-03-12 23:31:13,842 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/license.tmp_save
+2020-03-12 23:31:13,879 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/license.tmp
+2020-03-12 23:31:13,944 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/gpio.tmp_save
+2020-03-12 23:31:13,983 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/gpio.tmp
+2020-03-12 23:31:14,043 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 23:31:14,043 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DMA
+2020-03-12 23:31:14,043 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 23:31:14,057 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/dma.tmp_save
+2020-03-12 23:31:14,092 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/dma.tmp
+2020-03-12 23:31:14,094 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/dma_GV.tmp_save
+2020-03-12 23:31:14,127 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/dma_GV.tmp
+2020-03-12 23:31:14,127 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 23:31:14,127 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for SPI
+2020-03-12 23:31:14,127 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 23:31:14,128 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 23:31:14,128 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for USART
+2020-03-12 23:31:14,128 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 23:31:14,129 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-03-12 23:31:14,129 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 23:31:14,132 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/stm32f4xx_it.c_save
+2020-03-12 23:31:14,177 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/stm32f4xx_it.c
+2020-03-12 23:31:14,180 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/stm32f4xx_it.h_save
+2020-03-12 23:31:14,216 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/stm32f4xx_it.h
+2020-03-12 23:31:14,220 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/stm32f4xx_hal_msp.c_save
+2020-03-12 23:31:14,280 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/stm32f4xx_hal_msp.c
+2020-03-12 23:31:14,283 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/system.tmp_save
+2020-03-12 23:31:14,316 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/system.tmp
+2020-03-12 23:31:14,320 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/stm32f4xx_hal_conf.h_save
+2020-03-12 23:31:14,361 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/stm32f4xx_hal_conf.h
+2020-03-12 23:31:14,366 [WARN] IPConfigManager:2701 - IP not found : gpio
+2020-03-12 23:31:14,366 [WARN] CodeGenerator:2649 - IP not found : gpio
+2020-03-12 23:31:14,368 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/main.h_save
+2020-03-12 23:31:14,406 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/main.h
+2020-03-12 23:31:14,409 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/main.c_save
+2020-03-12 23:31:14,462 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/main.c
+2020-03-12 23:31:14,941 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 92mS.
+2020-03-12 23:31:14,942 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-03-12 23:31:15,088 [INFO] ConfigFileManager:1066 - The Die is : DIE433
+2020-03-12 23:31:15,859 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 917mS.
+2020-03-12 23:31:15,860 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 23:31:15,861 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-13 00:00:59,391 [INFO] MainUpdater:2230 - connection check result : 10
+2020-03-13 00:00:59,818 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-03-13 00:00:59,818 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-03-13 00:00:59,819 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-03-13 00:00:59,821 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 764358272 Bytes (1073741824)
+2020-03-13 00:00:59,821 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-03-13 00:00:59,821 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-03-13 00:00:59,821 [INFO] OpenFileManager:274 - Change cursor
+2020-03-13 00:00:59,827 [INFO] RulesReader:52 - Compatibility file has been processed (208 Rules)
+2020-03-13 00:01:00,359 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (SPI1_RX) currently not set
+2020-03-13 00:01:00,359 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (SPI1_RX) currently not set
+2020-03-13 00:01:00,359 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (SPI1_RX) currently not set
+2020-03-13 00:01:00,359 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (SPI1_RX) currently not set
+2020-03-13 00:01:00,359 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (SPI1_RX) currently not set
+2020-03-13 00:01:00,359 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (SPI1_RX) currently not set
+2020-03-13 00:01:00,359 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (SPI1_RX) currently not set
+2020-03-13 00:01:00,359 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (SPI1_RX) currently not set
+2020-03-13 00:01:00,359 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (SPI1_RX) currently not set
+2020-03-13 00:01:00,360 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (SPI1_RX) currently not set
+2020-03-13 00:01:00,360 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (SPI1_TX) currently not set
+2020-03-13 00:01:00,360 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (SPI1_TX) currently not set
+2020-03-13 00:01:00,360 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (SPI1_TX) currently not set
+2020-03-13 00:01:00,360 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (SPI1_TX) currently not set
+2020-03-13 00:01:00,360 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (SPI1_TX) currently not set
+2020-03-13 00:01:00,360 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (SPI1_TX) currently not set
+2020-03-13 00:01:00,360 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (SPI1_TX) currently not set
+2020-03-13 00:01:00,360 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (SPI1_TX) currently not set
+2020-03-13 00:01:00,360 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (SPI1_TX) currently not set
+2020-03-13 00:01:00,360 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (SPI1_TX) currently not set
+2020-03-13 00:01:00,417 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 679298304 Bytes (1073741824)
+2020-03-13 00:01:00,418 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1583289439911]
+2020-03-13 00:01:00,418 [INFO] ThirdPartyModel:521 - Component with status : MCU_INCOMPATIBLE for condition : OS Tick GTIM id : 1583289439238
+2020-03-13 00:01:00,418 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1583289442487, 1583289439994]
+2020-03-13 00:01:00,431 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 5.0.0
+2020-03-13 00:01:00,431 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 1.1.0
+2020-03-13 00:01:00,431 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 4.1.0
+2020-03-13 00:01:00,431 [INFO] ThirdParty:899 - CMSIS Pack Vendor :ARM CMSIS 5.6.0
+2020-03-13 00:01:00,431 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.13.0
+2020-03-13 00:01:00,432 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 1.5.2
+2020-03-13 00:01:00,432 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.1.0
+2020-03-13 00:01:00,432 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-03-13 00:01:00,432 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.0.0
+2020-03-13 00:01:00,432 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 5.0.0
+2020-03-13 00:01:00,432 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 1.0.0
+2020-03-13 00:01:00,466 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-03-13 00:01:00,466 [INFO] PinOutPanel:1420 - setPackage(STM32F401RETx,LQFP64)
+2020-03-13 00:01:00,552 [INFO] UtilMem:74 - Before build in PCC Used Memory: 745132136 Bytes (1073741824)
+2020-03-13 00:01:00,607 [INFO] SharedServices:71 - Folder for power plug-in: /Users/kevinbai/.stm32cubemx/plugins/power
+2020-03-13 00:01:00,620 [INFO] SharedServices:71 - Folder for power plug-in: /Users/kevinbai/.stm32cubemx/plugins/power
+2020-03-13 00:01:00,630 [INFO] SharedServices:71 - Folder for power plug-in: /Users/kevinbai/.stm32cubemx/plugins/power
+2020-03-13 00:01:00,631 [INFO] SharedServices:71 - Folder for power plug-in: /Users/kevinbai/.stm32cubemx/plugins/power
+2020-03-13 00:01:00,650 [INFO] UtilMem:74 - After build in PCC Used Memory: 786548848 Bytes (1073741824)
+2020-03-13 00:01:00,656 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,656 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,656 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,656 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,656 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,656 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,657 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,657 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,657 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,657 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,657 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,657 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,657 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,657 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,658 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,658 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,658 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,658 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,658 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,658 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,658 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,658 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,658 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,658 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,659 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,659 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,659 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,659 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,659 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,659 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,659 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,659 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,659 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,659 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,659 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,660 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,660 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,660 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:01:00,678 [INFO] OpenFileManager:294 - Restore cursor
+2020-03-13 00:01:27,884 [INFO] DmaTabbedPanel:192 - Cannot restore the selected Tab for DMA
+2020-03-13 00:01:28,931 [INFO] Gpio:248 - dependency for GPIO [SPI1, USART2]
+2020-03-13 00:01:29,816 [INFO] Gpio:248 - dependency for GPIO [SPI1, USART2]
+2020-03-13 00:02:45,945 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,523x418,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-03-13 00:02:59,731 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,523x418,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-03-13 00:36:59,391 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 757212776 Bytes (1073741824)
+2020-03-13 00:38:06,152 [INFO] MainUpdater:2230 - connection check result : 10
+2020-03-13 00:38:06,560 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-03-13 00:38:06,560 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-03-13 00:38:06,561 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-03-13 00:38:06,564 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 640294512 Bytes (1073741824)
+2020-03-13 00:38:06,564 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-03-13 00:38:06,564 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-03-13 00:38:06,564 [INFO] OpenFileManager:274 - Change cursor
+2020-03-13 00:38:06,569 [INFO] RulesReader:52 - Compatibility file has been processed (208 Rules)
+2020-03-13 00:38:07,028 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (SPI1_RX) currently not set
+2020-03-13 00:38:07,028 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (SPI1_RX) currently not set
+2020-03-13 00:38:07,028 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (SPI1_RX) currently not set
+2020-03-13 00:38:07,028 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (SPI1_RX) currently not set
+2020-03-13 00:38:07,028 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (SPI1_RX) currently not set
+2020-03-13 00:38:07,028 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (SPI1_RX) currently not set
+2020-03-13 00:38:07,028 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (SPI1_RX) currently not set
+2020-03-13 00:38:07,028 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (SPI1_RX) currently not set
+2020-03-13 00:38:07,028 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (SPI1_RX) currently not set
+2020-03-13 00:38:07,028 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (SPI1_RX) currently not set
+2020-03-13 00:38:07,029 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (SPI1_TX) currently not set
+2020-03-13 00:38:07,029 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (SPI1_TX) currently not set
+2020-03-13 00:38:07,029 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (SPI1_TX) currently not set
+2020-03-13 00:38:07,029 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (SPI1_TX) currently not set
+2020-03-13 00:38:07,029 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (SPI1_TX) currently not set
+2020-03-13 00:38:07,029 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (SPI1_TX) currently not set
+2020-03-13 00:38:07,029 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (SPI1_TX) currently not set
+2020-03-13 00:38:07,029 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (SPI1_TX) currently not set
+2020-03-13 00:38:07,029 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (SPI1_TX) currently not set
+2020-03-13 00:38:07,029 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (SPI1_TX) currently not set
+2020-03-13 00:38:07,103 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 675880048 Bytes (1073741824)
+2020-03-13 00:38:07,104 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1583289439911]
+2020-03-13 00:38:07,104 [INFO] ThirdPartyModel:521 - Component with status : MCU_INCOMPATIBLE for condition : OS Tick GTIM id : 1583289439238
+2020-03-13 00:38:07,104 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1583289442487, 1583289439994]
+2020-03-13 00:38:07,119 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 5.0.0
+2020-03-13 00:38:07,119 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 1.1.0
+2020-03-13 00:38:07,119 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 4.1.0
+2020-03-13 00:38:07,119 [INFO] ThirdParty:899 - CMSIS Pack Vendor :ARM CMSIS 5.6.0
+2020-03-13 00:38:07,119 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.13.0
+2020-03-13 00:38:07,119 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 1.5.2
+2020-03-13 00:38:07,119 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.1.0
+2020-03-13 00:38:07,119 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-03-13 00:38:07,119 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.0.0
+2020-03-13 00:38:07,119 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 5.0.0
+2020-03-13 00:38:07,119 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 1.0.0
+2020-03-13 00:38:07,159 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-03-13 00:38:07,159 [INFO] PinOutPanel:1420 - setPackage(STM32F401RETx,LQFP64)
+2020-03-13 00:38:07,244 [INFO] UtilMem:74 - Before build in PCC Used Memory: 742238160 Bytes (1073741824)
+2020-03-13 00:38:07,297 [INFO] SharedServices:71 - Folder for power plug-in: /Users/kevinbai/.stm32cubemx/plugins/power
+2020-03-13 00:38:07,309 [INFO] SharedServices:71 - Folder for power plug-in: /Users/kevinbai/.stm32cubemx/plugins/power
+2020-03-13 00:38:07,317 [INFO] SharedServices:71 - Folder for power plug-in: /Users/kevinbai/.stm32cubemx/plugins/power
+2020-03-13 00:38:07,318 [INFO] SharedServices:71 - Folder for power plug-in: /Users/kevinbai/.stm32cubemx/plugins/power
+2020-03-13 00:38:07,335 [INFO] UtilMem:74 - After build in PCC Used Memory: 783654872 Bytes (1073741824)
+2020-03-13 00:38:07,340 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,341 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,341 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,341 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,341 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,341 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,341 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,341 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,341 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,341 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,341 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,341 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,342 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,342 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,342 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,342 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,342 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,342 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,342 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,342 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,342 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,342 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,343 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,343 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,343 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,343 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,343 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,343 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,343 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,343 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,343 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,343 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,343 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,343 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,344 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,344 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,344 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,344 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:38:07,359 [INFO] OpenFileManager:294 - Restore cursor
+2020-03-13 00:43:07,259 [INFO] MainUpdater:2230 - connection check result : 10
+2020-03-13 00:43:07,691 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-03-13 00:43:07,691 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-03-13 00:43:07,694 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-03-13 00:43:07,695 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 518597648 Bytes (1073741824)
+2020-03-13 00:43:07,696 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-03-13 00:43:07,696 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-03-13 00:43:07,696 [INFO] OpenFileManager:274 - Change cursor
+2020-03-13 00:43:08,172 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (SPI1_RX) currently not set
+2020-03-13 00:43:08,172 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (SPI1_RX) currently not set
+2020-03-13 00:43:08,172 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (SPI1_RX) currently not set
+2020-03-13 00:43:08,172 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (SPI1_RX) currently not set
+2020-03-13 00:43:08,172 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (SPI1_RX) currently not set
+2020-03-13 00:43:08,172 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (SPI1_RX) currently not set
+2020-03-13 00:43:08,172 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (SPI1_RX) currently not set
+2020-03-13 00:43:08,172 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (SPI1_RX) currently not set
+2020-03-13 00:43:08,173 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (SPI1_RX) currently not set
+2020-03-13 00:43:08,173 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (SPI1_RX) currently not set
+2020-03-13 00:43:08,173 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (SPI1_TX) currently not set
+2020-03-13 00:43:08,173 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (SPI1_TX) currently not set
+2020-03-13 00:43:08,173 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (SPI1_TX) currently not set
+2020-03-13 00:43:08,173 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (SPI1_TX) currently not set
+2020-03-13 00:43:08,173 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (SPI1_TX) currently not set
+2020-03-13 00:43:08,173 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (SPI1_TX) currently not set
+2020-03-13 00:43:08,173 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (SPI1_TX) currently not set
+2020-03-13 00:43:08,173 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (SPI1_TX) currently not set
+2020-03-13 00:43:08,173 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (SPI1_TX) currently not set
+2020-03-13 00:43:08,173 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (SPI1_TX) currently not set
+2020-03-13 00:43:08,230 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 849589720 Bytes (1073741824)
+2020-03-13 00:43:08,231 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1583289439911]
+2020-03-13 00:43:08,231 [INFO] ThirdPartyModel:521 - Component with status : MCU_INCOMPATIBLE for condition : OS Tick GTIM id : 1583289439238
+2020-03-13 00:43:08,231 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1583289442487, 1583289439994]
+2020-03-13 00:43:08,244 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 5.0.0
+2020-03-13 00:43:08,244 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 1.1.0
+2020-03-13 00:43:08,244 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 4.1.0
+2020-03-13 00:43:08,244 [INFO] ThirdParty:899 - CMSIS Pack Vendor :ARM CMSIS 5.6.0
+2020-03-13 00:43:08,244 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.13.0
+2020-03-13 00:43:08,244 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 1.5.2
+2020-03-13 00:43:08,244 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.1.0
+2020-03-13 00:43:08,244 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-03-13 00:43:08,245 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.0.0
+2020-03-13 00:43:08,245 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 5.0.0
+2020-03-13 00:43:08,245 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 1.0.0
+2020-03-13 00:43:08,279 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-03-13 00:43:08,280 [INFO] PinOutPanel:1420 - setPackage(STM32F401RETx,LQFP64)
+2020-03-13 00:43:08,370 [INFO] UtilMem:74 - Before build in PCC Used Memory: 915947832 Bytes (1073741824)
+2020-03-13 00:43:08,439 [INFO] SharedServices:71 - Folder for power plug-in: /Users/kevinbai/.stm32cubemx/plugins/power
+2020-03-13 00:43:08,452 [INFO] SharedServices:71 - Folder for power plug-in: /Users/kevinbai/.stm32cubemx/plugins/power
+2020-03-13 00:43:08,460 [INFO] SharedServices:71 - Folder for power plug-in: /Users/kevinbai/.stm32cubemx/plugins/power
+2020-03-13 00:43:08,461 [INFO] SharedServices:71 - Folder for power plug-in: /Users/kevinbai/.stm32cubemx/plugins/power
+2020-03-13 00:43:08,475 [INFO] UtilMem:74 - After build in PCC Used Memory: 521681224 Bytes (1073741824)
+2020-03-13 00:43:08,481 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,481 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,482 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,482 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,482 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,482 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,482 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,482 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,482 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,482 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,482 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,483 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,483 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,483 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,483 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,483 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,483 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,483 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,483 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,483 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,484 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,484 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,484 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,484 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,484 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,484 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,484 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,484 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,484 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,484 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,485 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,485 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,485 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,485 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,485 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,485 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,485 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,485 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:43:08,502 [INFO] OpenFileManager:294 - Restore cursor
+2020-03-13 00:43:08,743 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 570442048 Bytes (1073741824)
+2020-03-13 00:43:08,856 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SPI
+2020-03-13 00:43:08,856 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-03-13 00:43:08,856 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: USART
+2020-03-13 00:43:08,857 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DMA
+2020-03-13 00:43:08,857 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-03-13 00:43:08,857 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-03-13 00:43:08,857 [INFO] CodeGenerator:603 - code generatio: config db path: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db/
+2020-03-13 00:43:08,863 [INFO] Argument:278 - Argument : hdmavalue: null
+2020-03-13 00:43:08,863 [INFO] Argument:280 - 	 sub Args: 
+2020-03-13 00:43:08,863 [INFO] Argument:278 - Argument : Instancevalue: DMA2_Stream0
+2020-03-13 00:43:08,863 [INFO] Argument:288 - Argument : Instancevalue: DMA2_Stream0
+2020-03-13 00:43:08,863 [INFO] Argument:278 - Argument : Initvalue: null
+2020-03-13 00:43:08,863 [INFO] Argument:280 - 	 sub Args: 
+2020-03-13 00:43:08,863 [INFO] Argument:278 - Argument : Channelvalue: DMA_CHANNEL_3
+2020-03-13 00:43:08,863 [INFO] Argument:288 - Argument : Channelvalue: DMA_CHANNEL_3
+2020-03-13 00:43:08,863 [INFO] Argument:278 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2020-03-13 00:43:08,863 [INFO] Argument:288 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2020-03-13 00:43:08,863 [INFO] Argument:278 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-03-13 00:43:08,864 [INFO] Argument:288 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-03-13 00:43:08,864 [INFO] Argument:278 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-03-13 00:43:08,864 [INFO] Argument:288 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-03-13 00:43:08,864 [INFO] Argument:278 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-03-13 00:43:08,864 [INFO] Argument:288 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-03-13 00:43:08,864 [INFO] Argument:278 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-03-13 00:43:08,864 [INFO] Argument:288 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-03-13 00:43:08,864 [INFO] Argument:278 - Argument : Modevalue: DMA_NORMAL
+2020-03-13 00:43:08,864 [INFO] Argument:288 - Argument : Modevalue: DMA_NORMAL
+2020-03-13 00:43:08,864 [INFO] Argument:278 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-03-13 00:43:08,864 [INFO] Argument:288 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-03-13 00:43:08,864 [INFO] Argument:278 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-03-13 00:43:08,864 [INFO] Argument:288 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-03-13 00:43:08,864 [INFO] Argument:278 - Argument : FIFOThresholdvalue: null
+2020-03-13 00:43:08,864 [INFO] Argument:288 - Argument : FIFOThresholdvalue: null
+2020-03-13 00:43:08,864 [INFO] Argument:278 - Argument : MemBurstvalue: null
+2020-03-13 00:43:08,864 [INFO] Argument:288 - Argument : MemBurstvalue: null
+2020-03-13 00:43:08,864 [INFO] Argument:278 - Argument : PeriphBurstvalue: null
+2020-03-13 00:43:08,865 [INFO] Argument:288 - Argument : PeriphBurstvalue: null
+2020-03-13 00:43:08,865 [INFO] Argument:278 - Argument : Lockvalue: null
+2020-03-13 00:43:08,865 [INFO] Argument:288 - Argument : Lockvalue: null
+2020-03-13 00:43:08,865 [INFO] Argument:278 - Argument : Statevalue: null
+2020-03-13 00:43:08,865 [INFO] Argument:288 - Argument : Statevalue: null
+2020-03-13 00:43:08,865 [INFO] Argument:278 - Argument : Parentvalue: null
+2020-03-13 00:43:08,865 [INFO] Argument:288 - Argument : Parentvalue: null
+2020-03-13 00:43:08,865 [INFO] Argument:278 - Argument : XferCpltCallbackvalue: null
+2020-03-13 00:43:08,865 [INFO] Argument:288 - Argument : XferCpltCallbackvalue: null
+2020-03-13 00:43:08,865 [INFO] Argument:278 - Argument : XferHalfCpltCallbackvalue: null
+2020-03-13 00:43:08,865 [INFO] Argument:288 - Argument : XferHalfCpltCallbackvalue: null
+2020-03-13 00:43:08,865 [INFO] Argument:278 - Argument : XferM1CpltCallbackvalue: null
+2020-03-13 00:43:08,865 [INFO] Argument:288 - Argument : XferM1CpltCallbackvalue: null
+2020-03-13 00:43:08,865 [INFO] Argument:278 - Argument : XferErrorCallbackvalue: null
+2020-03-13 00:43:08,865 [INFO] Argument:288 - Argument : XferErrorCallbackvalue: null
+2020-03-13 00:43:08,865 [INFO] Argument:278 - Argument : ErrorCodevalue: null
+2020-03-13 00:43:08,865 [INFO] Argument:288 - Argument : ErrorCodevalue: null
+2020-03-13 00:43:08,865 [INFO] Argument:278 - Argument : hdmavalue: null
+2020-03-13 00:43:08,866 [INFO] Argument:280 - 	 sub Args: 
+2020-03-13 00:43:08,866 [INFO] Argument:278 - Argument : Instancevalue: DMA2_Stream3
+2020-03-13 00:43:08,866 [INFO] Argument:288 - Argument : Instancevalue: DMA2_Stream3
+2020-03-13 00:43:08,866 [INFO] Argument:278 - Argument : Initvalue: null
+2020-03-13 00:43:08,866 [INFO] Argument:280 - 	 sub Args: 
+2020-03-13 00:43:08,866 [INFO] Argument:278 - Argument : Channelvalue: DMA_CHANNEL_3
+2020-03-13 00:43:08,866 [INFO] Argument:288 - Argument : Channelvalue: DMA_CHANNEL_3
+2020-03-13 00:43:08,866 [INFO] Argument:278 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2020-03-13 00:43:08,866 [INFO] Argument:288 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2020-03-13 00:43:08,866 [INFO] Argument:278 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-03-13 00:43:08,866 [INFO] Argument:288 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-03-13 00:43:08,866 [INFO] Argument:278 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-03-13 00:43:08,866 [INFO] Argument:288 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-03-13 00:43:08,866 [INFO] Argument:278 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-03-13 00:43:08,866 [INFO] Argument:288 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-03-13 00:43:08,866 [INFO] Argument:278 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-03-13 00:43:08,866 [INFO] Argument:288 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-03-13 00:43:08,866 [INFO] Argument:278 - Argument : Modevalue: DMA_NORMAL
+2020-03-13 00:43:08,867 [INFO] Argument:288 - Argument : Modevalue: DMA_NORMAL
+2020-03-13 00:43:08,867 [INFO] Argument:278 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-03-13 00:43:08,867 [INFO] Argument:288 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-03-13 00:43:08,867 [INFO] Argument:278 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-03-13 00:43:08,867 [INFO] Argument:288 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-03-13 00:43:08,867 [INFO] Argument:278 - Argument : FIFOThresholdvalue: null
+2020-03-13 00:43:08,867 [INFO] Argument:288 - Argument : FIFOThresholdvalue: null
+2020-03-13 00:43:08,867 [INFO] Argument:278 - Argument : MemBurstvalue: null
+2020-03-13 00:43:08,867 [INFO] Argument:288 - Argument : MemBurstvalue: null
+2020-03-13 00:43:08,867 [INFO] Argument:278 - Argument : PeriphBurstvalue: null
+2020-03-13 00:43:08,867 [INFO] Argument:288 - Argument : PeriphBurstvalue: null
+2020-03-13 00:43:08,867 [INFO] Argument:278 - Argument : Lockvalue: null
+2020-03-13 00:43:08,867 [INFO] Argument:288 - Argument : Lockvalue: null
+2020-03-13 00:43:08,867 [INFO] Argument:278 - Argument : Statevalue: null
+2020-03-13 00:43:08,867 [INFO] Argument:288 - Argument : Statevalue: null
+2020-03-13 00:43:08,867 [INFO] Argument:278 - Argument : Parentvalue: null
+2020-03-13 00:43:08,867 [INFO] Argument:288 - Argument : Parentvalue: null
+2020-03-13 00:43:08,867 [INFO] Argument:278 - Argument : XferCpltCallbackvalue: null
+2020-03-13 00:43:08,867 [INFO] Argument:288 - Argument : XferCpltCallbackvalue: null
+2020-03-13 00:43:08,868 [INFO] Argument:278 - Argument : XferHalfCpltCallbackvalue: null
+2020-03-13 00:43:08,868 [INFO] Argument:288 - Argument : XferHalfCpltCallbackvalue: null
+2020-03-13 00:43:08,868 [INFO] Argument:278 - Argument : XferM1CpltCallbackvalue: null
+2020-03-13 00:43:08,868 [INFO] Argument:288 - Argument : XferM1CpltCallbackvalue: null
+2020-03-13 00:43:08,868 [INFO] Argument:278 - Argument : XferErrorCallbackvalue: null
+2020-03-13 00:43:08,868 [INFO] Argument:288 - Argument : XferErrorCallbackvalue: null
+2020-03-13 00:43:08,868 [INFO] Argument:278 - Argument : ErrorCodevalue: null
+2020-03-13 00:43:08,868 [INFO] Argument:288 - Argument : ErrorCodevalue: null
+2020-03-13 00:43:08,963 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/license.tmp_save
+2020-03-13 00:43:08,997 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/license.tmp
+2020-03-13 00:43:09,029 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/gpio.tmp_save
+2020-03-13 00:43:09,066 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/gpio.tmp
+2020-03-13 00:43:09,121 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-13 00:43:09,121 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DMA
+2020-03-13 00:43:09,122 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-13 00:43:09,137 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/dma.tmp_save
+2020-03-13 00:43:09,173 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/dma.tmp
+2020-03-13 00:43:09,175 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/dma_GV.tmp_save
+2020-03-13 00:43:09,208 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/dma_GV.tmp
+2020-03-13 00:43:09,209 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-13 00:43:09,209 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for SPI
+2020-03-13 00:43:09,209 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-13 00:43:09,210 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-13 00:43:09,210 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for USART
+2020-03-13 00:43:09,210 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-13 00:43:09,210 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-03-13 00:43:09,211 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-13 00:43:09,214 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/stm32f4xx_it.c_save
+2020-03-13 00:43:09,258 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/stm32f4xx_it.c
+2020-03-13 00:43:09,261 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/stm32f4xx_it.h_save
+2020-03-13 00:43:09,297 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/stm32f4xx_it.h
+2020-03-13 00:43:09,302 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/stm32f4xx_hal_msp.c_save
+2020-03-13 00:43:09,363 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/stm32f4xx_hal_msp.c
+2020-03-13 00:43:09,366 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/system.tmp_save
+2020-03-13 00:43:09,400 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/system.tmp
+2020-03-13 00:43:09,404 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/stm32f4xx_hal_conf.h_save
+2020-03-13 00:43:09,445 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/stm32f4xx_hal_conf.h
+2020-03-13 00:43:09,450 [WARN] IPConfigManager:2701 - IP not found : gpio
+2020-03-13 00:43:09,451 [WARN] CodeGenerator:2649 - IP not found : gpio
+2020-03-13 00:43:09,453 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/main.h_save
+2020-03-13 00:43:09,492 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/main.h
+2020-03-13 00:43:09,495 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/main.c_save
+2020-03-13 00:43:09,550 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/main.c
+2020-03-13 00:43:10,079 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 85mS.
+2020-03-13 00:43:10,080 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-03-13 00:43:10,224 [INFO] ConfigFileManager:1066 - The Die is : DIE433
+2020-03-13 00:43:11,018 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 938mS.
+2020-03-13 00:43:11,018 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-13 00:43:11,019 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-13 00:46:30,996 [INFO] MainUpdater:2230 - connection check result : 10
+2020-03-13 00:46:31,279 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-03-13 00:46:31,279 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-03-13 00:46:31,281 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-03-13 00:46:31,282 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 799803616 Bytes (1073741824)
+2020-03-13 00:46:31,283 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-03-13 00:46:31,283 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-03-13 00:46:31,283 [INFO] OpenFileManager:274 - Change cursor
+2020-03-13 00:46:31,288 [INFO] RulesReader:52 - Compatibility file has been processed (208 Rules)
+2020-03-13 00:46:31,780 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (SPI1_RX) currently not set
+2020-03-13 00:46:31,780 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (SPI1_RX) currently not set
+2020-03-13 00:46:31,780 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (SPI1_RX) currently not set
+2020-03-13 00:46:31,781 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (SPI1_RX) currently not set
+2020-03-13 00:46:31,781 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (SPI1_RX) currently not set
+2020-03-13 00:46:31,781 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (SPI1_RX) currently not set
+2020-03-13 00:46:31,781 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (SPI1_RX) currently not set
+2020-03-13 00:46:31,781 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (SPI1_RX) currently not set
+2020-03-13 00:46:31,781 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (SPI1_RX) currently not set
+2020-03-13 00:46:31,781 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (SPI1_RX) currently not set
+2020-03-13 00:46:31,781 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (SPI1_TX) currently not set
+2020-03-13 00:46:31,781 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (SPI1_TX) currently not set
+2020-03-13 00:46:31,781 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (SPI1_TX) currently not set
+2020-03-13 00:46:31,781 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (SPI1_TX) currently not set
+2020-03-13 00:46:31,781 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (SPI1_TX) currently not set
+2020-03-13 00:46:31,782 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (SPI1_TX) currently not set
+2020-03-13 00:46:31,782 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (SPI1_TX) currently not set
+2020-03-13 00:46:31,782 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (SPI1_TX) currently not set
+2020-03-13 00:46:31,782 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (SPI1_TX) currently not set
+2020-03-13 00:46:31,782 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (SPI1_TX) currently not set
+2020-03-13 00:46:31,836 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 733913936 Bytes (1073741824)
+2020-03-13 00:46:31,837 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1583289439911]
+2020-03-13 00:46:31,837 [INFO] ThirdPartyModel:521 - Component with status : MCU_INCOMPATIBLE for condition : OS Tick GTIM id : 1583289439238
+2020-03-13 00:46:31,837 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1583289442487, 1583289439994]
+2020-03-13 00:46:31,850 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 5.0.0
+2020-03-13 00:46:31,850 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 1.1.0
+2020-03-13 00:46:31,850 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 4.1.0
+2020-03-13 00:46:31,850 [INFO] ThirdParty:899 - CMSIS Pack Vendor :ARM CMSIS 5.6.0
+2020-03-13 00:46:31,850 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.13.0
+2020-03-13 00:46:31,851 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 1.5.2
+2020-03-13 00:46:31,851 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.1.0
+2020-03-13 00:46:31,851 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-03-13 00:46:31,851 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.0.0
+2020-03-13 00:46:31,851 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 5.0.0
+2020-03-13 00:46:31,851 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 1.0.0
+2020-03-13 00:46:31,887 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-03-13 00:46:31,887 [INFO] PinOutPanel:1420 - setPackage(STM32F401RETx,LQFP64)
+2020-03-13 00:46:31,970 [INFO] UtilMem:74 - Before build in PCC Used Memory: 800272048 Bytes (1073741824)
+2020-03-13 00:46:32,014 [INFO] SharedServices:71 - Folder for power plug-in: /Users/kevinbai/.stm32cubemx/plugins/power
+2020-03-13 00:46:32,026 [INFO] SharedServices:71 - Folder for power plug-in: /Users/kevinbai/.stm32cubemx/plugins/power
+2020-03-13 00:46:32,034 [INFO] SharedServices:71 - Folder for power plug-in: /Users/kevinbai/.stm32cubemx/plugins/power
+2020-03-13 00:46:32,035 [INFO] SharedServices:71 - Folder for power plug-in: /Users/kevinbai/.stm32cubemx/plugins/power
+2020-03-13 00:46:32,049 [INFO] UtilMem:74 - After build in PCC Used Memory: 841688760 Bytes (1073741824)
+2020-03-13 00:46:32,055 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,055 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,055 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,056 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,056 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,056 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,056 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,056 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,057 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,057 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,057 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,057 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,057 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,057 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,057 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,058 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,058 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,058 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,058 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,058 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,058 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,058 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,058 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,058 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,059 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,059 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,059 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,059 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,059 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,059 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,059 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,059 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,059 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,059 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,059 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,060 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,060 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,060 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-13 00:46:32,076 [INFO] OpenFileManager:294 - Restore cursor
+2020-03-13 00:52:01,704 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 501123560 Bytes (1073741824)
+2020-03-13 00:52:02,957 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 465350320 Bytes (1073741824)
+2020-03-13 00:52:03,069 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 476883648 Bytes (1073741824)
+2020-03-13 00:52:03,193 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SPI
+2020-03-13 00:52:03,193 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-03-13 00:52:03,193 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: USART
+2020-03-13 00:52:03,193 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DMA
+2020-03-13 00:52:03,193 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-03-13 00:52:03,193 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-03-13 00:52:03,193 [INFO] CodeGenerator:603 - code generatio: config db path: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db/
+2020-03-13 00:52:03,333 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/license.tmp_save
+2020-03-13 00:52:03,377 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/license.tmp
+2020-03-13 00:52:03,409 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/gpio.tmp_save
+2020-03-13 00:52:03,451 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/gpio.tmp
+2020-03-13 00:52:03,550 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-13 00:52:03,550 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DMA
+2020-03-13 00:52:03,550 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-13 00:52:03,568 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/dma.tmp_save
+2020-03-13 00:52:03,616 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/dma.tmp
+2020-03-13 00:52:03,618 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/dma_GV.tmp_save
+2020-03-13 00:52:03,654 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/dma_GV.tmp
+2020-03-13 00:52:03,654 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-13 00:52:03,655 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for SPI
+2020-03-13 00:52:03,655 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-13 00:52:03,656 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-13 00:52:03,656 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for USART
+2020-03-13 00:52:03,656 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-13 00:52:03,657 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-03-13 00:52:03,657 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-13 00:52:03,661 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/stm32f4xx_it.c_save
+2020-03-13 00:52:03,709 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/stm32f4xx_it.c
+2020-03-13 00:52:03,712 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/stm32f4xx_it.h_save
+2020-03-13 00:52:03,750 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/stm32f4xx_it.h
+2020-03-13 00:52:03,755 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/stm32f4xx_hal_msp.c_save
+2020-03-13 00:52:03,818 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/stm32f4xx_hal_msp.c
+2020-03-13 00:52:03,821 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/system.tmp_save
+2020-03-13 00:52:03,856 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/system.tmp
+2020-03-13 00:52:03,860 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/stm32f4xx_hal_conf.h_save
+2020-03-13 00:52:03,901 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/stm32f4xx_hal_conf.h
+2020-03-13 00:52:03,906 [WARN] IPConfigManager:2701 - IP not found : gpio
+2020-03-13 00:52:03,906 [WARN] CodeGenerator:2649 - IP not found : gpio
+2020-03-13 00:52:03,909 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/main.h_save
+2020-03-13 00:52:03,947 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/main.h
+2020-03-13 00:52:03,950 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/main.c_save
+2020-03-13 00:52:04,004 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/main.c
+2020-03-13 00:52:04,483 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 79mS.
+2020-03-13 00:52:04,484 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-03-13 00:52:04,710 [INFO] ConfigFileManager:1066 - The Die is : DIE433
+2020-03-13 00:52:05,453 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 969mS.
+2020-03-13 00:52:05,454 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-13 00:52:05,455 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 1mS.
+2020-03-13 00:53:55,388 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,450x418,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-03-13 00:54:00,495 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 650230472 Bytes (1073741824)
+2020-03-13 00:54:02,045 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 661764808 Bytes (1073741824)
+2020-03-13 00:54:02,153 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 674347720 Bytes (1073741824)
+2020-03-13 00:54:02,263 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SPI
+2020-03-13 00:54:02,264 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-03-13 00:54:02,264 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: USART
+2020-03-13 00:54:02,264 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DMA
+2020-03-13 00:54:02,264 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-03-13 00:54:02,264 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-03-13 00:54:02,264 [INFO] CodeGenerator:603 - code generatio: config db path: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db/
+2020-03-13 00:54:02,383 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/license.tmp_save
+2020-03-13 00:54:02,421 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/license.tmp
+2020-03-13 00:54:02,427 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/gpio.tmp_save
+2020-03-13 00:54:02,464 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/gpio.tmp
+2020-03-13 00:54:02,527 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-13 00:54:02,527 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DMA
+2020-03-13 00:54:02,527 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-13 00:54:02,543 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/dma.tmp_save
+2020-03-13 00:54:02,583 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/dma.tmp
+2020-03-13 00:54:02,585 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/dma_GV.tmp_save
+2020-03-13 00:54:02,619 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/dma_GV.tmp
+2020-03-13 00:54:02,620 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-13 00:54:02,620 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for SPI
+2020-03-13 00:54:02,620 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-13 00:54:02,621 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-13 00:54:02,621 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for USART
+2020-03-13 00:54:02,621 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-13 00:54:02,621 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-03-13 00:54:02,622 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-13 00:54:02,624 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/stm32f4xx_it.c_save
+2020-03-13 00:54:02,672 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/stm32f4xx_it.c
+2020-03-13 00:54:02,675 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/stm32f4xx_it.h_save
+2020-03-13 00:54:02,710 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/stm32f4xx_it.h
+2020-03-13 00:54:02,715 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/stm32f4xx_hal_msp.c_save
+2020-03-13 00:54:02,777 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/stm32f4xx_hal_msp.c
+2020-03-13 00:54:02,780 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/system.tmp_save
+2020-03-13 00:54:02,847 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/MXTmpFiles/system.tmp
+2020-03-13 00:54:02,851 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/stm32f4xx_hal_conf.h_save
+2020-03-13 00:54:02,892 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/stm32f4xx_hal_conf.h
+2020-03-13 00:54:02,897 [WARN] IPConfigManager:2701 - IP not found : gpio
+2020-03-13 00:54:02,897 [WARN] CodeGenerator:2649 - IP not found : gpio
+2020-03-13 00:54:02,899 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/main.h_save
+2020-03-13 00:54:02,937 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Inc/main.h
+2020-03-13 00:54:02,940 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/main.c_save
+2020-03-13 00:54:02,994 [INFO] CodeEngine:206 - Generated code: /Users/kevinbai/Programming/Waterloop/CubeIDE/BMS/BMS_Code/Core/Src/main.c
+2020-03-13 00:54:03,348 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 79mS.
+2020-03-13 00:54:03,349 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-03-13 00:54:03,575 [INFO] ConfigFileManager:1066 - The Die is : DIE433
+2020-03-13 00:54:04,294 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 945mS.
+2020-03-13 00:54:04,295 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 1mS.
+2020-03-13 00:54:04,295 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-14 16:22:55,910 [INFO] Activator:176 - 
+
+
+2020-03-14 16:22:55,914 [INFO] Activator:177 - !SESSION log4j initialized
+2020-03-14 16:22:58,312 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2020-03-15 15:02:21,148 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] ***WARNING: Display must be created on main thread due to Cocoa restrictions. Use vmarg -XstartOnFirstThread
+2020-03-15 15:02:21,150 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] ***WARNING: Display must be created on main thread due to Cocoa restrictions. Use vmarg -XstartOnFirstThread
