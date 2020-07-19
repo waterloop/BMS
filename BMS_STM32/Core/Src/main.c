@@ -25,6 +25,7 @@
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
 #include <string.h>
+#include "lookuptable.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -129,7 +130,7 @@ int main(void)
 
   /* USER CODE BEGIN Init */
   bmsState nextState = State_1;
-  uint16_t raw;
+  uint16_t adcValue;
   char msg[10];
   /* USER CODE END Init */
 
@@ -165,23 +166,12 @@ int main(void)
 		// code
 	}
 
-	//Set GPIO pin high
-	HAL_GPIO_WritePin(GPIO_PORT, GPIO_PIN_NUM, GPIO_PIN_SET);
-
-	//Set GPIO pin low
-	HAL_GPIO_WritePin(GPIO_PORT, GPIO_PIN_NUM, GPIO_PIN_RESET);
-
-	//Get ADC value
+	// Temperature reading
 	HAL_ADC_Start(&hadc1);
 	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-	raw = HAL_ADC_GetValue(&hadc1);
-
-	// Convert to string and print
-	springf(msg, "%hu\r\n", raw);
-	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
-
-	// Pause
-	HAL_Delay(1000);
+	adcValue = HAL_ADC_GetValue(&hadc1);
+	temp = lookup(adcValue);
+	HAL_Delay(200);
 
     /* USER CODE BEGIN 3 */
   }
