@@ -25,7 +25,8 @@
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
 #include <string.h>
-#include "lookuptable.h"
+#include "led.h"
+#include "contactor.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -60,56 +61,6 @@ static void MX_ADC1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-// BMS States
-typedef enum
-{
-	State_1,
-	State_2,
-	State_3,
-	State_Last
-
-} bmsState;
-
-// BMS Events
-typedef enum
-{
-	Event_1,
-	Event_2,
-	Event_3,
-	Event_Last
-
-} bmsEvent;
-
-// Function Pointer
-typedef bmsState (*eventHandler)(void);
-
-typedef struct
-{
-	bmsState StateMachine;
-	bmsEvent StateMachineEvent;
-	eventHandler StateMachineEventHandler;
-} bmsStruct;
-
-// Functions
-bmsState Function1(void)
-{
-	return State_1;
-}
-bmsState Function2(void)
-{
-	return State_2;
-}
-bmsState Function3(void)
-{
-	return State_3;
-}
-
-bmsStruct sStateMachine [] =
-{
-	{State_1, Event_1, Function_1},
-	{State_2, Event_2, Function_2},
-	{State_3, Event_3, Function_3}
-};
 
 /* USER CODE END 0 */
 
@@ -129,9 +80,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-  bmsState nextState = State_1;
-  uint16_t adcValue;
-  char msg[10];
+
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -146,6 +95,14 @@ int main(void)
   MX_GPIO_Init();
   MX_ADC1_Init();
   MX_USART2_UART_Init();
+
+  State currentState = Initialize;
+  int reset = 0;
+  int sleep = 0;
+  int charger = 0;
+  int cellUnbalanced = 0;
+  int runButton = 0;
+  int capacitorsCharged = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -154,28 +111,110 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
-	bmsState newEvent = transitionFunction();
-
-	// State Changes
-	if ((nextState < State_Last) && (newEvent < Event_Last) && (sStateMachine[nextState].StateMachineEvent == newEvent))
-	{
-		nextState = (*sStateMachine[nextState].StateMachineEventHandler)();
-	}
-	else
-	{
-		// code
-	}
-
-	// Temperature reading
-	HAL_ADC_Start(&hadc1);
-	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-	adcValue = HAL_ADC_GetValue(&hadc1);
-	temp = lookup(adcValue);
-	HAL_Delay(200);
-
     /* USER CODE BEGIN 3 */
+
+	  currentState = (State)currentState();
   }
   /* USER CODE END 3 */
+}
+
+State Initialize() {
+	/* if initialize without error */
+	return Idle;
+	/* else if fails */
+	return Initialize;
+}
+
+State Idle() {
+	led("GRN");
+	contactor(0);
+	/* Measure */
+	if (sleep) {
+		return Sleep;
+	} else if (charger) {
+		return Charging;
+	} else if (cellUnbalanced) {
+		return Balancing;
+	} else if (runButton && conditionsMet) {
+		return Precharging;
+	} else {
+		return Idle;
+	}
+}
+
+State Precharging() {
+	led("PRP");
+	/* turn on precharging circuit */
+	if (capacitorsCharged) {
+		/* turn off precharging circuit */
+		return Run;
+	} else {
+		return Precharging;
+	}
+}
+
+State Run() {
+	contactor(1);
+	/* measure */
+	led("PRP");
+	/* if severe danger fault */
+	return Severe_Danger_Fault;
+	/* elif normal danger fault */
+	return Normal_Danger_Fault;
+	/* elif run complete */
+	return Stop;
+	/* else */
+	return Run;
+}
+
+State Stop() {
+	led_flash("BLU");
+	contactor(0);
+	/* measure */
+	reset = resetButton; // reset = 1 if reset button is pressed
+	if (reset) {
+		return Idle;
+	} else {
+		return Stop;
+	}
+}
+
+State Sleep() {
+	led("BLU");
+	sleep = !wakeButton;
+	if (sleep) {
+		return Sleep;
+	} else {
+		return Idle;
+	}
+}
+
+State Charging() {
+	/* idk */
+}
+
+State Balancing() {
+	/* idk */
+}
+
+State Normal_Danger_Fault() {
+	contactor(0);
+	/* display error on Dashboard */
+	/* measure */
+	led("RED");
+	if (reset) {
+		return Idle;
+	} else {
+		return Normal_Danger_Fault;
+	}
+}
+
+State Severe_Danger_Fault() {
+	contactor(0);
+	/* display error on Dashboard */
+	/* measure */
+	led_flash("RED");
+	return Severe_Danger_Fault;
 }
 
 /**

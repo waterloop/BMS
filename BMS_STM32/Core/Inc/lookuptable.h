@@ -3,6 +3,6 @@
 
 #include <stdint.h>
 
-uint16_t lookup(uint16_t adcValue);
+uint8_t lookup(uint8_t adcValue);
 
 #endif /* LOOKUPTABLE_H_ */

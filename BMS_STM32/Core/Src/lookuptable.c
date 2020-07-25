@@ -1,6 +1,6 @@
 #include "lookuptable.h"
 
-static const uint16_t table[128] = {
+static const uint8_t table[128] = {
 	100, 98, 95, 93, 91, 89, 88, 86,
 	84,  81, 81, 80, 78, 77, 76, 74,
 	73,  72, 71, 70, 68, 67, 66, 65,
@@ -19,13 +19,13 @@ static const uint16_t table[128] = {
 	 7,  7,   6,  6,  5,  5,  4,  4
 };
 
-uint16_t lookup(uint16_t adcValue) {
+uint8_t lookup(uint8_t adcValue) {
 	if (adcValue < 360) {
 		return 100;
 	} else if (adcValue > 2920) {
 		return 0;
 	} else {
-		uint16_t index = (adcValue - 360) / 20;
+		uint8_t index = (adcValue - 360) / 20;
 		return table[index];
 	}
 }

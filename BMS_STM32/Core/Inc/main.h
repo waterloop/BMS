@@ -37,6 +37,8 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
+typedef void(*pointer)();
+typedef pointer(*State)();
 
 /* USER CODE END ET */
 
@@ -52,7 +54,16 @@ extern "C" {
 
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
-
+State Initialize();
+State Idle();
+State Precharging();
+State Run();
+State Stop();
+State Sleep();
+State Charging();
+State Balancing();
+State Normal_Danger_Fault();
+State Severe_Danger_Fault();
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */
