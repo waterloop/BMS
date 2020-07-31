@@ -32,7 +32,7 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "led.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -54,6 +54,8 @@ typedef pointer(*State)();
 
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
+
+/* USER CODE BEGIN EFP */
 State Initialize();
 State Idle();
 State Precharging();
@@ -64,11 +66,25 @@ State Charging();
 State Balancing();
 State Normal_Danger_Fault();
 State Severe_Danger_Fault();
-/* USER CODE BEGIN EFP */
-
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define LED_Red_Pin GPIO_PIN_1
+#define LED_Red_GPIO_Port GPIOB
+#define Contactor_Pin GPIO_PIN_8
+#define Contactor_GPIO_Port GPIOA
+#define Reset_Pin GPIO_PIN_11
+#define Reset_GPIO_Port GPIOA
+#define LED_Pin GPIO_PIN_3
+#define LED_GPIO_Port GPIOB
+#define Start_Pin GPIO_PIN_4
+#define Start_GPIO_Port GPIOB
+#define Stop_Pin GPIO_PIN_5
+#define Stop_GPIO_Port GPIOB
+#define LED_Green_Pin GPIO_PIN_6
+#define LED_Green_GPIO_Port GPIOB
+#define LED_Blue_Pin GPIO_PIN_7
+#define LED_Blue_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

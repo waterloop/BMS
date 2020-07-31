@@ -23,10 +23,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <stdio.h>
-#include <string.h>
-#include "led.h"
-#include "contactor.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -36,6 +33,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -44,23 +42,97 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-/* USER CODE BEGIN PV */
-ADC_HandleTypeDef hadc1;
+SPI_HandleTypeDef hspi1;
+
 UART_HandleTypeDef huart2;
+
+/* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_SPI1_Init(void);
 static void MX_USART2_UART_Init(void);
-static void MX_ADC1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+State Initialize() {
+	led_flash(3);
+	HAL_GPIO_WritePin(Contactor_GPIO_Port, Contactor_Pin, GPIO_PIN_RESET);
+	/* Things to Initialize.
+	 * If initialization passes, go to Idle state.
+	 * If initialization fails, try again. */
+	if (1) {
+		return Idle();
+	} else {
+		return Initialize();
+	}
+}
+
+State Idle() {
+	led(3);
+	HAL_GPIO_WritePin(Contactor_GPIO_Port, Contactor_Pin, GPIO_PIN_RESET);
+	HAL_Delay(50);
+	/* Measure temperature and voltage. */
+	if (HAL_GPIO_ReadPin(Start_GPIO_Port, Start_Pin)) {
+		return Precharging();
+	} else {
+		return Idle();
+	}
+}
+
+State Precharging() {
+	led_flash(6);
+	HAL_GPIO_WritePin(Contactor_GPIO_Port, Contactor_Pin, GPIO_PIN_RESET);
+	/* Measure temperature and voltage. */
+	return Run();
+}
+
+State Run() {
+	led(6);
+	HAL_GPIO_WritePin(Contactor_GPIO_Port, Contactor_Pin, GPIO_PIN_SET);
+	HAL_Delay(50);
+	/* Measure temperature, voltage and current. */
+	if (HAL_GPIO_ReadPin(Stop_GPIO_Port, Stop_Pin)) {
+		return Stop(); // if brakes applied
+	} else {
+		return Run();
+	}
+}
+
+State Stop() {
+	HAL_GPIO_WritePin(Contactor_GPIO_Port, Contactor_Pin, GPIO_PIN_RESET);
+	led_flash(5);
+	HAL_Delay(50);
+	/* Measure temperature and voltage. */
+	if (HAL_GPIO_ReadPin(Reset_GPIO_Port, Reset_Pin)) {
+		return Idle();
+	} else {
+		return Stop();
+	}
+}
+
+State Normal_Danger_Fault() {
+	led(1);
+	HAL_Delay(50);
+	/* Measure temperature and voltage. */
+	if (HAL_GPIO_ReadPin(Reset_GPIO_Port, Reset_Pin)) {
+		return Idle();
+	} else {
+		return Normal_Danger_Fault();
+	}
+}
+
+State Severe_Danger_Fault() {
+	led_flash(1);
+	/* Measure temperature and voltage. */
+	return Severe_Danger_Fault();
+}
 
 /* USER CODE END 0 */
 
@@ -91,18 +163,11 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-  /* USER CODE BEGIN 2 */
   MX_GPIO_Init();
-  MX_ADC1_Init();
+  MX_SPI1_Init();
   MX_USART2_UART_Init();
-
-  State currentState = Initialize;
-  int reset = 0;
-  int sleep = 0;
-  int charger = 0;
-  int cellUnbalanced = 0;
-  int runButton = 0;
-  int capacitorsCharged = 0;
+  /* USER CODE BEGIN 2 */
+  State currentState = Initialize();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -112,109 +177,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
 	  currentState = (State)currentState();
   }
   /* USER CODE END 3 */
-}
-
-State Initialize() {
-	/* if initialize without error */
-	return Idle;
-	/* else if fails */
-	return Initialize;
-}
-
-State Idle() {
-	led("GRN");
-	contactor(0);
-	/* Measure */
-	if (sleep) {
-		return Sleep;
-	} else if (charger) {
-		return Charging;
-	} else if (cellUnbalanced) {
-		return Balancing;
-	} else if (runButton && conditionsMet) {
-		return Precharging;
-	} else {
-		return Idle;
-	}
-}
-
-State Precharging() {
-	led("PRP");
-	/* turn on precharging circuit */
-	if (capacitorsCharged) {
-		/* turn off precharging circuit */
-		return Run;
-	} else {
-		return Precharging;
-	}
-}
-
-State Run() {
-	contactor(1);
-	/* measure */
-	led("PRP");
-	/* if severe danger fault */
-	return Severe_Danger_Fault;
-	/* elif normal danger fault */
-	return Normal_Danger_Fault;
-	/* elif run complete */
-	return Stop;
-	/* else */
-	return Run;
-}
-
-State Stop() {
-	led_flash("BLU");
-	contactor(0);
-	/* measure */
-	reset = resetButton; // reset = 1 if reset button is pressed
-	if (reset) {
-		return Idle;
-	} else {
-		return Stop;
-	}
-}
-
-State Sleep() {
-	led("BLU");
-	sleep = !wakeButton;
-	if (sleep) {
-		return Sleep;
-	} else {
-		return Idle;
-	}
-}
-
-State Charging() {
-	/* idk */
-}
-
-State Balancing() {
-	/* idk */
-}
-
-State Normal_Danger_Fault() {
-	contactor(0);
-	/* display error on Dashboard */
-	/* measure */
-	led("RED");
-	if (reset) {
-		return Idle;
-	} else {
-		return Normal_Danger_Fault;
-	}
-}
-
-State Severe_Danger_Fault() {
-	contactor(0);
-	/* display error on Dashboard */
-	/* measure */
-	led_flash("RED");
-	return Severe_Danger_Fault;
 }
 
 /**
@@ -225,16 +190,19 @@ void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
-  /** Configure the main internal regulator output voltage 
+  /** Configure LSE Drive Capability 
   */
-  __HAL_RCC_PWR_CLK_ENABLE();
-  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE2);
+  HAL_PWR_EnableBkUpAccess();
+  __HAL_RCC_LSEDRIVE_CONFIG(RCC_LSEDRIVE_LOW);
   /** Initializes the CPU, AHB and APB busses clocks 
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSE|RCC_OSCILLATORTYPE_MSI;
+  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
+  RCC_OscInitStruct.MSIState = RCC_MSI_ON;
+  RCC_OscInitStruct.MSICalibrationValue = 0;
+  RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_6;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
@@ -244,7 +212,7 @@ void SystemClock_Config(void)
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_MSI;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
@@ -253,6 +221,144 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART2;
+  PeriphClkInit.Usart2ClockSelection = RCC_USART2CLKSOURCE_PCLK1;
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /** Configure the main internal regulator output voltage 
+  */
+  if (HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /** Enable MSI Auto calibration 
+  */
+  HAL_RCCEx_EnableMSIPLLMode();
+}
+
+/**
+  * @brief SPI1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_SPI1_Init(void)
+{
+
+  /* USER CODE BEGIN SPI1_Init 0 */
+
+  /* USER CODE END SPI1_Init 0 */
+
+  /* USER CODE BEGIN SPI1_Init 1 */
+
+  /* USER CODE END SPI1_Init 1 */
+  /* SPI1 parameter configuration*/
+  hspi1.Instance = SPI1;
+  hspi1.Init.Mode = SPI_MODE_MASTER;
+  hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+  hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+  hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
+  hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
+  hspi1.Init.NSS = SPI_NSS_SOFT;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16;
+  hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+  hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
+  hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+  hspi1.Init.CRCPolynomial = 7;
+  hspi1.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
+  hspi1.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
+  if (HAL_SPI_Init(&hspi1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN SPI1_Init 2 */
+
+  /* USER CODE END SPI1_Init 2 */
+
+}
+
+/**
+  * @brief USART2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART2_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART2_Init 0 */
+
+  /* USER CODE END USART2_Init 0 */
+
+  /* USER CODE BEGIN USART2_Init 1 */
+
+  /* USER CODE END USART2_Init 1 */
+  huart2.Instance = USART2;
+  huart2.Init.BaudRate = 115200;
+  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  huart2.Init.StopBits = UART_STOPBITS_1;
+  huart2.Init.Parity = UART_PARITY_NONE;
+  huart2.Init.Mode = UART_MODE_TX_RX;
+  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART2_Init 2 */
+
+  /* USER CODE END USART2_Init 2 */
+
+}
+
+/**
+  * @brief GPIO Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_GPIO_Init(void)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, LED_Red_Pin|LED_Pin|LED_Green_Pin|LED_Blue_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(Contactor_GPIO_Port, Contactor_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : LED_Red_Pin LED_Pin LED_Green_Pin LED_Blue_Pin */
+  GPIO_InitStruct.Pin = LED_Red_Pin|LED_Pin|LED_Green_Pin|LED_Blue_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : Contactor_Pin */
+  GPIO_InitStruct.Pin = Contactor_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(Contactor_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : Reset_Pin */
+  GPIO_InitStruct.Pin = Reset_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(Reset_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : Start_Pin Stop_Pin */
+  GPIO_InitStruct.Pin = Start_Pin|Stop_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
 }
 
 /* USER CODE BEGIN 4 */

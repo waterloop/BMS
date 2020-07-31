@@ -1,46 +1,46 @@
 #include "led.h"
 
-#define Port GPIOC
-#define RedPin RedLED_Pin
-#define GreenPin GreenLED_Pin
-#define BluePin BlueLED_Pin
+#define ON GPIO_PIN_RESET
+#define OFF GPIO_PIN_SET
 
-void ledOn(char color[3]) {
-	if (color == "RED") {
-		HAL_GPIO_WritePin(Port, RedPin, 1);
-		HAL_GPIO_WritePin(Port, GreenPin, 0);
-		HAL_GPIO_WritePin(Port, BluePin, 0);
-	} else if (color == "YLW") {
-		HAL_GPIO_WritePin(Port, RedPin, 1);
-		HAL_GPIO_WritePin(Port, GreenPin, 1);
-		HAL_GPIO_WritePin(Port, BluePin, 0);
-	} else if (color == "GRN") {
-		HAL_GPIO_WritePin(Port, RedPin, 0);
-		HAL_GPIO_WritePin(Port, GreenPin, 1);
-		HAL_GPIO_WritePin(Port, BluePin, 0);
-	} else if (color == "BLU") {
-		HAL_GPIO_WritePin(Port, RedPin, 0);
-		HAL_GPIO_WritePin(Port, GreenPin, 0);
-		HAL_GPIO_WritePin(Port, BluePin, 1);
-	} else if (color == "PRP") {
-		HAL_GPIO_WritePin(Port, RedPin, 1);
-		HAL_GPIO_WritePin(Port, GreenPin, 0);
-		HAL_GPIO_WritePin(Port, BluePin, 1);
+void ledPin(_Bool red, _Bool green, _Bool blue) {
+	HAL_GPIO_WritePin(LED_Red_GPIO_Port, LED_Red_Pin, !(red));
+	HAL_GPIO_WritePin(LED_Green_GPIO_Port, LED_Green_Pin, !(green));
+	HAL_GPIO_WritePin(LED_Blue_GPIO_Port, LED_Blue_Pin, !(blue));
+}
+
+void led(int col) {
+	switch(col)
+	{
+		case 1: // red
+			ledPin(1,0,0);
+			break;
+		case 2: // yellow
+			ledPin(1,1,0);
+			break;
+		case 3: // green
+			ledPin(0,1,0);
+			break;
+		case 4: // turqoise
+			ledPin(0,1,1);
+			break;
+		case 5: // blue
+			ledPin(0,0,1);
+			break;
+		case 6: // magenta
+			ledPin(1,0,1);
+			break;
+		case 7: // white
+			ledPin(1,0,1);
+			break;
+		default: // off
+			ledPin(0,0,0);
 	}
 }
 
-void led(char color[3]) {
-	ledOn(color);
-}
-
-void led_flash(char color[3]) {
-	ledOn(color);
-
-	HAL_Delay(1000);
-
-	HAL_GPIO_WritePin(Port, RedPin, 0);
-	HAL_GPIO_WritePin(Port, GreenPin, 0);
-	HAL_GPIO_WritePin(Port, BluePin, 0);
-
-	HAL_Delay(1000);
+void led_flash(int col) {
+	led(col);
+	HAL_Delay(500);
+	led(0);
+	HAL_Delay(500);
 }
