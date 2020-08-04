@@ -20,10 +20,13 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "cmsis_os.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdio.h>
+#include <string.h>
+#include "led.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -46,6 +49,32 @@ SPI_HandleTypeDef hspi1;
 
 UART_HandleTypeDef huart2;
 
+/* Definitions for Measurements */
+osThreadId_t MeasurementsHandle;
+const osThreadAttr_t Measurements_attributes = {
+  .name = "Measurements",
+  .priority = (osPriority_t) osPriorityAboveNormal,
+  .stack_size = 128 * 4
+};
+/* Definitions for StateMachine */
+osThreadId_t StateMachineHandle;
+const osThreadAttr_t StateMachine_attributes = {
+  .name = "StateMachine",
+  .priority = (osPriority_t) osPriorityNormal,
+  .stack_size = 128 * 4
+};
+/* Definitions for Led */
+osThreadId_t LedHandle;
+const osThreadAttr_t Led_attributes = {
+  .name = "Led",
+  .priority = (osPriority_t) osPriorityBelowNormal,
+  .stack_size = 128 * 4
+};
+/* Definitions for BinSem */
+osSemaphoreId_t BinSemHandle;
+const osSemaphoreAttr_t BinSem_attributes = {
+  .name = "BinSem"
+};
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -55,84 +84,70 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_USART2_UART_Init(void);
+void StartMeasurements(void *argument);
+void StartStateMachine(void *argument);
+void StartLed(void *argument);
+
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-State Initialize() {
-	led_flash(3);
-	HAL_GPIO_WritePin(Contactor_GPIO_Port, Contactor_Pin, GPIO_PIN_RESET);
-	/* Things to Initialize.
-	 * If initialization passes, go to Idle state.
-	 * If initialization fails, try again. */
-	if (1) {
-		return Idle();
-	} else {
-		return Initialize();
+
+int _write(int file, char *ptr, int len)
+{
+  int i=0;
+  for(i=0 ; i<len ; i++)
+    ITM_SendChar((*ptr++));
+  return len;
+}
+
+Battery BatteryPack;
+
+void BatteryInit(void) {
+	BatteryPack.voltage = 0;
+	BatteryPack.current = 0;
+	BatteryPack.temperature = 0;
+	for (int i = 0; i < numCells; i++) {
+		Cell cell = {
+			.voltage = 0,
+			.temperature = 0
+		};
+		BatteryPack.cells[i] = cell;
 	}
 }
 
-State Idle() {
-	led(3);
-	HAL_GPIO_WritePin(Contactor_GPIO_Port, Contactor_Pin, GPIO_PIN_RESET);
-	HAL_Delay(50);
-	/* Measure temperature and voltage. */
-	if (HAL_GPIO_ReadPin(Start_GPIO_Port, Start_Pin)) {
-		return Precharging();
-	} else {
-		return Idle();
-	}
-}
+const char* StateNames[] = {
+  "Initialize",
+  "Idle",
+  "Precharging",
+  "Run",
+  "Stop",
+  "Sleep",
+  "NormalDangerFault",
+  "SevereDangerFault",
+  "Charging",
+  "Charged",
+  "Balancing"
+};
 
-State Precharging() {
-	led_flash(6);
-	HAL_GPIO_WritePin(Contactor_GPIO_Port, Contactor_Pin, GPIO_PIN_RESET);
-	/* Measure temperature and voltage. */
-	return Run();
-}
+State_t CurrentState = Initialize;
+State_t OldState = Sleep;
 
-State Run() {
-	led(6);
-	HAL_GPIO_WritePin(Contactor_GPIO_Port, Contactor_Pin, GPIO_PIN_SET);
-	HAL_Delay(50);
-	/* Measure temperature, voltage and current. */
-	if (HAL_GPIO_ReadPin(Stop_GPIO_Port, Stop_Pin)) {
-		return Stop(); // if brakes applied
-	} else {
-		return Run();
-	}
-}
-
-State Stop() {
-	HAL_GPIO_WritePin(Contactor_GPIO_Port, Contactor_Pin, GPIO_PIN_RESET);
-	led_flash(5);
-	HAL_Delay(50);
-	/* Measure temperature and voltage. */
-	if (HAL_GPIO_ReadPin(Reset_GPIO_Port, Reset_Pin)) {
-		return Idle();
-	} else {
-		return Stop();
-	}
-}
-
-State Normal_Danger_Fault() {
-	led(1);
-	HAL_Delay(50);
-	/* Measure temperature and voltage. */
-	if (HAL_GPIO_ReadPin(Reset_GPIO_Port, Reset_Pin)) {
-		return Idle();
-	} else {
-		return Normal_Danger_Fault();
-	}
-}
-
-State Severe_Danger_Fault() {
-	led_flash(1);
-	/* Measure temperature and voltage. */
-	return Severe_Danger_Fault();
-}
+StateMachine SM[11] = {
+    {Initialize, InitializeEvent},
+	{Idle, IdleEvent},
+	{Precharging, PrechargingEvent},
+	{Run, RunEvent},
+	{Stop, StopEvent},
+	{Sleep, SleepEvent},
+	{NormalDangerFault, NormalDangerFaultEvent},
+	{SevereDangerFault, SevereDangerFaultEvent},
+	{Charging, ChargingEvent},
+	{Charged, ChargedEvent},
+	{Balancing, BalancingEvent}
+};
 
 /* USER CODE END 0 */
 
@@ -167,9 +182,50 @@ int main(void)
   MX_SPI1_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  State currentState = Initialize();
+  BatteryInit();
   /* USER CODE END 2 */
 
+  /* Init scheduler */
+  osKernelInitialize();
+
+  /* USER CODE BEGIN RTOS_MUTEX */
+  /* add mutexes, ... */
+  /* USER CODE END RTOS_MUTEX */
+
+  /* Create the semaphores(s) */
+  /* creation of BinSem */
+  BinSemHandle = osSemaphoreNew(1, 1, &BinSem_attributes);
+
+  /* USER CODE BEGIN RTOS_SEMAPHORES */
+  /* add semaphores, ... */
+  /* USER CODE END RTOS_SEMAPHORES */
+
+  /* USER CODE BEGIN RTOS_TIMERS */
+  /* start timers, add new ones, ... */
+  /* USER CODE END RTOS_TIMERS */
+
+  /* USER CODE BEGIN RTOS_QUEUES */
+  /* add queues, ... */
+  /* USER CODE END RTOS_QUEUES */
+
+  /* Create the thread(s) */
+  /* creation of Measurements */
+  MeasurementsHandle = osThreadNew(StartMeasurements, NULL, &Measurements_attributes);
+
+  /* creation of StateMachine */
+  StateMachineHandle = osThreadNew(StartStateMachine, NULL, &StateMachine_attributes);
+
+  /* creation of Led */
+  LedHandle = osThreadNew(StartLed, NULL, &Led_attributes);
+
+  /* USER CODE BEGIN RTOS_THREADS */
+  /* add threads, ... */
+  /* USER CODE END RTOS_THREADS */
+
+  /* Start scheduler */
+  osKernelStart();
+ 
+  /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -177,7 +233,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  currentState = (State)currentState();
+
   }
   /* USER CODE END 3 */
 }
@@ -192,17 +248,11 @@ void SystemClock_Config(void)
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
   RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
-  /** Configure LSE Drive Capability 
-  */
-  HAL_PWR_EnableBkUpAccess();
-  __HAL_RCC_LSEDRIVE_CONFIG(RCC_LSEDRIVE_LOW);
   /** Initializes the CPU, AHB and APB busses clocks 
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSE|RCC_OSCILLATORTYPE_MSI;
-  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
-  RCC_OscInitStruct.MSIState = RCC_MSI_ON;
-  RCC_OscInitStruct.MSICalibrationValue = 0;
-  RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_6;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
@@ -212,7 +262,7 @@ void SystemClock_Config(void)
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_MSI;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
@@ -233,9 +283,6 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  /** Enable MSI Auto calibration 
-  */
-  HAL_RCCEx_EnableMSIPLLMode();
 }
 
 /**
@@ -347,11 +394,11 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(Contactor_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : Reset_Pin */
-  GPIO_InitStruct.Pin = Reset_Pin;
+  /*Configure GPIO pins : Charge_Pin Reset_Pin */
+  GPIO_InitStruct.Pin = Charge_Pin|Reset_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(Reset_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : Start_Pin Stop_Pin */
   GPIO_InitStruct.Pin = Start_Pin|Stop_Pin;
@@ -362,8 +409,188 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+State_t InitializeEvent(void) {
+	osDelay(3000);
+	return Idle;
+}
 
+State_t IdleEvent(void) {
+	osThreadResume(MeasurementsHandle);
+	HAL_GPIO_WritePin(Contactor_GPIO_Port, Contactor_Pin, 0);
+	if (HAL_GPIO_ReadPin(Start_GPIO_Port, Start_Pin)) {
+		return Precharging;
+	} else if (HAL_GPIO_ReadPin(Charge_GPIO_Port, Charge_Pin)) {
+		return Charging;
+	} else if (HAL_GPIO_ReadPin(Stop_GPIO_Port, Stop_Pin)) {
+		return Sleep;
+	} else {
+		return Idle;
+	}
+}
+
+State_t PrechargingEvent(void) {
+	osDelay(3000);
+	return Run;
+}
+
+State_t RunEvent(void) {
+	HAL_GPIO_WritePin(Contactor_GPIO_Port, Contactor_Pin, 1);
+	if (HAL_GPIO_ReadPin(Stop_GPIO_Port, Stop_Pin)) {
+		return Stop;
+	} else {
+		return Run;
+	}
+}
+
+State_t StopEvent(void) {
+	HAL_GPIO_WritePin(Contactor_GPIO_Port, Contactor_Pin, 0);
+	if (HAL_GPIO_ReadPin(Reset_GPIO_Port, Reset_Pin)) {
+		return Idle;
+	} else {
+		return Stop;
+	}
+}
+
+State_t SleepEvent(void) {
+	osThreadSuspend(MeasurementsHandle);
+	if (HAL_GPIO_ReadPin(Reset_GPIO_Port, Reset_Pin)) {
+		return Idle;
+	} else {
+		return Sleep;
+	}
+}
+
+State_t NormalDangerFaultEvent(void) {
+	HAL_GPIO_WritePin(Contactor_GPIO_Port, Contactor_Pin, 0);
+	if (HAL_GPIO_ReadPin(Reset_GPIO_Port, Reset_Pin)) {
+		return Idle;
+	} else {
+		return NormalDangerFault;
+	}
+}
+
+State_t SevereDangerFaultEvent(void) {
+	HAL_GPIO_WritePin(Contactor_GPIO_Port, Contactor_Pin, 0);
+	return SevereDangerFault;
+}
+
+State_t ChargingEvent(void) {
+	HAL_GPIO_WritePin(Contactor_GPIO_Port, Contactor_Pin, 1);
+	if (BatteryPack.voltage > 51600) {
+		return Charged;
+	} else {
+		return Charging;
+	}
+}
+
+State_t ChargedEvent(void) {
+	HAL_GPIO_WritePin(Contactor_GPIO_Port, Contactor_Pin, 0);
+	if (HAL_GPIO_ReadPin(Reset_GPIO_Port, Reset_Pin)) {
+		return Idle;
+	} else {
+		return Charged;
+	}
+}
+
+State_t BalancingEvent(void) {
+	return Balancing;
+}
 /* USER CODE END 4 */
+
+/* USER CODE BEGIN Header_StartMeasurements */
+/**
+  * @brief  Function implementing the Measurements thread.
+  * @param  argument: Not used 
+  * @retval None
+  */
+/* USER CODE END Header_StartMeasurements */
+void StartMeasurements(void *argument)
+{
+  /* USER CODE BEGIN 5 */
+  /* Infinite loop */
+  for(;;)
+  {
+	/* Measure Battery Pack voltage, current, temperature every 1000 milliseconds */
+	BatteryPack.voltage = 51800; // mV
+	BatteryPack.current = 20000; // mA
+	BatteryPack.temperature = 30; // ˚C
+	char dataM[100];
+	sprintf(dataM, "Voltage: %dmV,  Current: %dmA,  Temperature: %d˚C\r\n", BatteryPack.voltage, BatteryPack.current, BatteryPack.temperature);
+	HAL_UART_Transmit(&huart2, (uint8_t*)dataM, strlen(dataM), 500);
+	if (BatteryPack.voltage > SevereDangerVoltage || BatteryPack.current > SevereDangerCurrent || BatteryPack.temperature > SevereDangerTemperature) {
+		CurrentState = SevereDangerFault;
+	} else if (BatteryPack.voltage > NormalDangerVoltage || BatteryPack.current > NormalDangerCurrent || BatteryPack.temperature > NormalDangerTemperature) {
+		CurrentState = NormalDangerFault;
+	}
+    osDelay(1000);
+  }
+  /* USER CODE END 5 */ 
+}
+
+/* USER CODE BEGIN Header_StartStateMachine */
+/**
+* @brief Function implementing the StateMachine thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartStateMachine */
+void StartStateMachine(void *argument)
+{
+  /* USER CODE BEGIN StartStateMachine */
+  /* Infinite loop */
+  for(;;)
+  {
+	if (OldState != CurrentState) {
+		char dataState[100];
+		sprintf(dataState, "Current State: %s\r\n", StateNames[CurrentState]);
+		HAL_UART_Transmit(&huart2, (uint8_t*)dataState, strlen(dataState), 500);
+	}
+	OldState = CurrentState;
+	CurrentState = (*SM[CurrentState].Event)();
+	osDelay(100);
+  }
+  /* USER CODE END StartStateMachine */
+}
+
+/* USER CODE BEGIN Header_StartLed */
+/**
+* @brief Function implementing the Led thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartLed */
+void StartLed(void *argument)
+{
+  /* USER CODE BEGIN StartLed */
+  /* Infinite loop */
+  for(;;)
+  {
+    LedOn(CurrentState);
+    osDelay(500);
+  }
+  /* USER CODE END StartLed */
+}
+
+ /**
+  * @brief  Period elapsed callback in non blocking mode
+  * @note   This function is called  when TIM1 interrupt took place, inside
+  * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
+  * a global variable "uwTick" used as application time base.
+  * @param  htim : TIM handle
+  * @retval None
+  */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  /* USER CODE BEGIN Callback 0 */
+
+  /* USER CODE END Callback 0 */
+  if (htim->Instance == TIM1) {
+    HAL_IncTick();
+  }
+  /* USER CODE BEGIN Callback 1 */
+
+  /* USER CODE END Callback 1 */
+}
 
 /**
   * @brief  This function is executed in case of error occurrence.

@@ -32,14 +32,45 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "led.h"
+
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-typedef void(*pointer)();
-typedef pointer(*State)();
+#define numCells 14
 
+typedef enum {
+  Initialize,
+  Idle,
+  Precharging,
+  Run,
+  Stop,
+  Sleep,
+  NormalDangerFault,
+  SevereDangerFault,
+  Charging,
+  Charged,
+  Balancing
+} State_t;
+
+typedef struct {
+	uint16_t voltage;
+	uint8_t temperature;
+} Cell;
+
+typedef struct Battery {
+	uint16_t voltage;
+	uint16_t current;
+	uint8_t temperature;
+	Cell cells[numCells];
+} Battery;
+
+typedef State_t (*pfEvent)(void);
+
+typedef struct {
+	State_t State;
+	pfEvent Event;
+} StateMachine;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -56,16 +87,19 @@ typedef pointer(*State)();
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-State Initialize();
-State Idle();
-State Precharging();
-State Run();
-State Stop();
-State Sleep();
-State Charging();
-State Balancing();
-State Normal_Danger_Fault();
-State Severe_Danger_Fault();
+State_t InitializeEvent(void);
+State_t IdleEvent(void);
+State_t PrechargingEvent(void);
+State_t RunEvent(void);
+State_t StopEvent(void);
+State_t SleepEvent(void);
+State_t NormalDangerFaultEvent(void);
+State_t SevereDangerFaultEvent(void);
+State_t ChargingEvent(void);
+State_t ChargedEvent(void);
+State_t BalancingEvent(void);
+
+void BatteryInit(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
@@ -73,6 +107,8 @@ State Severe_Danger_Fault();
 #define LED_Red_GPIO_Port GPIOB
 #define Contactor_Pin GPIO_PIN_8
 #define Contactor_GPIO_Port GPIOA
+#define Charge_Pin GPIO_PIN_9
+#define Charge_GPIO_Port GPIOA
 #define Reset_Pin GPIO_PIN_11
 #define Reset_GPIO_Port GPIOA
 #define LED_Pin GPIO_PIN_3
@@ -86,7 +122,12 @@ State Severe_Danger_Fault();
 #define LED_Blue_Pin GPIO_PIN_7
 #define LED_Blue_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
-
+#define SevereDangerVoltage 55000
+#define NormalDangerVoltage 53000
+#define SevereDangerCurrent 30000
+#define NormalDangerCurrent 25000
+#define SevereDangerTemperature 60
+#define NormalDangerTemperature 50
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

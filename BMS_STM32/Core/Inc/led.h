@@ -4,8 +4,17 @@
 #include "main.h"
 #include "stm32l4xx_hal.h"
 
-void ledPin(_Bool red, _Bool green, _Bool blue);
-void led(int col);
-void led_flash(int col);
+typedef struct colour {
+	_Bool r;
+	_Bool g;
+	_Bool b;
+} Colour;
+
+typedef enum {
+	Blink,
+	Hold
+} LEDMode;
+
+void LedOn(State_t CurrentState);
 
 #endif /* INC_LED_H_ */
