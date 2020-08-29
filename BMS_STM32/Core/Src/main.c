@@ -95,14 +95,7 @@ void StartLed(void *argument);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-int _write(int file, char *ptr, int len)
-{
-  int i=0;
-  for(i=0 ; i<len ; i++)
-    ITM_SendChar((*ptr++));
-  return len;
-}
-
+/* Initializing a structure variable for the battery pack */
 Battery BatteryPack;
 
 void BatteryInit(void) {
@@ -118,7 +111,8 @@ void BatteryInit(void) {
 	}
 }
 
-const char* StateNames[] = {
+/* This is created to display the state name in serial terminal. */
+const char *StateNames[] = {
   "Initialize",
   "Idle",
   "Precharging",
@@ -409,13 +403,16 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+/* Defining the conditions necessary for state transitions */
+
 State_t InitializeEvent(void) {
-	osDelay(3000);
+	osDelay(3000); // This is added to show it enters the initialize state for 3 seconds during testing
 	return Idle;
 }
 
 State_t IdleEvent(void) {
-	osThreadResume(MeasurementsHandle);
+	osThreadResume(MeasurementsHandle); // Resumes measurement if the previous state was Sleep
 	HAL_GPIO_WritePin(Contactor_GPIO_Port, Contactor_Pin, 0);
 	if (HAL_GPIO_ReadPin(Start_GPIO_Port, Start_Pin)) {
 		return Precharging;
@@ -452,7 +449,7 @@ State_t StopEvent(void) {
 }
 
 State_t SleepEvent(void) {
-	osThreadSuspend(MeasurementsHandle);
+	osThreadSuspend(MeasurementsHandle); // Pauses measurements
 	if (HAL_GPIO_ReadPin(Reset_GPIO_Port, Reset_Pin)) {
 		return Idle;
 	} else {
@@ -510,10 +507,10 @@ void StartMeasurements(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	/* Measure Battery Pack voltage, current, temperature every 1000 milliseconds */
-	BatteryPack.voltage = 51800; // mV
-	BatteryPack.current = 20000; // mA
-	BatteryPack.temperature = 30; // ˚C
+	/* Measure Battery Pack voltage, current, temperature every 200 milliseconds */
+	BatteryPack.voltage = 51800; // Should change to a function that grabs data
+	BatteryPack.current = 20000; // Should change to a function that grabs data
+	BatteryPack.temperature = 30; // Should change to a function that grabs data
 	char dataM[100];
 	sprintf(dataM, "Voltage: %dmV,  Current: %dmA,  Temperature: %d˚C\r\n", BatteryPack.voltage, BatteryPack.current, BatteryPack.temperature);
 	HAL_UART_Transmit(&huart2, (uint8_t*)dataM, strlen(dataM), 500);
@@ -522,7 +519,7 @@ void StartMeasurements(void *argument)
 	} else if (BatteryPack.voltage > NormalDangerVoltage || BatteryPack.current > NormalDangerCurrent || BatteryPack.temperature > NormalDangerTemperature) {
 		CurrentState = NormalDangerFault;
 	}
-    osDelay(1000);
+    osDelay(200);
   }
   /* USER CODE END 5 */ 
 }
@@ -540,6 +537,7 @@ void StartStateMachine(void *argument)
   /* Infinite loop */
   for(;;)
   {
+	// Print CurrentState in serial terminal if the state changes
 	if (OldState != CurrentState) {
 		char dataState[100];
 		sprintf(dataState, "Current State: %s\r\n", StateNames[CurrentState]);
@@ -547,7 +545,7 @@ void StartStateMachine(void *argument)
 	}
 	OldState = CurrentState;
 	CurrentState = (*SM[CurrentState].Event)();
-	osDelay(100);
+	osDelay(200);
   }
   /* USER CODE END StartStateMachine */
 }

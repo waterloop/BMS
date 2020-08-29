@@ -122,6 +122,7 @@ void BatteryInit(void);
 #define LED_Blue_Pin GPIO_PIN_7
 #define LED_Blue_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
+// Arbitrary values, get values from the Electrical team.
 #define SevereDangerVoltage 55000
 #define NormalDangerVoltage 53000
 #define SevereDangerCurrent 30000

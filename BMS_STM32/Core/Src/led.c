@@ -1,6 +1,6 @@
 #include "led.h"
 
-#define ON 0
+#define ON 0 // Depends on your RGB; my RGB turns off the channel when GPIO output is true
 #define OFF 1
 
 Colour Red = {ON, OFF, OFF};
