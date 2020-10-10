@@ -3,6 +3,8 @@
 #define ON 0 // Depends on your RGB; my RGB turns off the channel when GPIO output is true
 #define OFF 1
 
+#ifdef LED_ENABLED
+
 Colour Red = {ON, OFF, OFF};
 Colour Yellow = {ON, ON, OFF};
 Colour Green = {OFF, ON, OFF};
@@ -74,3 +76,5 @@ void LedOn(State_t CurrentState) {
 			break;
 	}
 }
+
+#endif

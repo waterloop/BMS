@@ -37,6 +37,8 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
+// #define LED_ENABLED
+
 #define numCells 14
 
 typedef enum {
@@ -103,8 +105,6 @@ void BatteryInit(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define LED_Red_Pin GPIO_PIN_1
-#define LED_Red_GPIO_Port GPIOB
 #define Contactor_Pin GPIO_PIN_8
 #define Contactor_GPIO_Port GPIOA
 #define Charge_Pin GPIO_PIN_9
@@ -117,10 +117,6 @@ void BatteryInit(void);
 #define Start_GPIO_Port GPIOB
 #define Stop_Pin GPIO_PIN_5
 #define Stop_GPIO_Port GPIOB
-#define LED_Green_Pin GPIO_PIN_6
-#define LED_Green_GPIO_Port GPIOB
-#define LED_Blue_Pin GPIO_PIN_7
-#define LED_Blue_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 // Arbitrary values, get values from the Electrical team.
 #define SevereDangerVoltage 55000
