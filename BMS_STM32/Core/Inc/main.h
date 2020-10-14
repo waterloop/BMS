@@ -37,10 +37,13 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-// #define LED_ENABLED
 
+/* Operation Mode and Definitions */
+// #define LED_ENABLED
+#define TESTING_MODE
 #define numCells 14
 
+/* Private types */
 typedef enum {
   Initialize,
   Idle,
