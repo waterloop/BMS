@@ -94,22 +94,22 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
     /* Peripheral clock enable */
     __HAL_RCC_ADC_CLK_ENABLE();
 
-    __HAL_RCC_GPIOA_CLK_ENABLE();
     __HAL_RCC_GPIOC_CLK_ENABLE();
+    __HAL_RCC_GPIOB_CLK_ENABLE();
     /**ADC1 GPIO Configuration
-    PA6     ------> ADC1_IN11
-    PA7     ------> ADC1_IN12
     PC4     ------> ADC1_IN13
+    PC5     ------> ADC1_IN14
+    PB0     ------> ADC1_IN15
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_6|GPIO_PIN_7;
-    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG_ADC_CONTROL;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-    GPIO_InitStruct.Pin = GPIO_PIN_4;
+    GPIO_InitStruct.Pin = TEMPERATURE_Pin|CURRENT_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG_ADC_CONTROL;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = VOLTAGE_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG_ADC_CONTROL;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(VOLTAGE_GPIO_Port, &GPIO_InitStruct);
 
   /* USER CODE BEGIN ADC1_MspInit 1 */
 
@@ -135,13 +135,13 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
     __HAL_RCC_ADC_CLK_DISABLE();
 
     /**ADC1 GPIO Configuration
-    PA6     ------> ADC1_IN11
-    PA7     ------> ADC1_IN12
     PC4     ------> ADC1_IN13
+    PC5     ------> ADC1_IN14
+    PB0     ------> ADC1_IN15
     */
-    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_6|GPIO_PIN_7);
+    HAL_GPIO_DeInit(GPIOC, TEMPERATURE_Pin|CURRENT_Pin);
 
-    HAL_GPIO_DeInit(GPIOC, GPIO_PIN_4);
+    HAL_GPIO_DeInit(VOLTAGE_GPIO_Port, VOLTAGE_Pin);
 
   /* USER CODE BEGIN ADC1_MspDeInit 1 */
 
@@ -257,99 +257,6 @@ void HAL_I2C_MspDeInit(I2C_HandleTypeDef* hi2c)
   /* USER CODE BEGIN I2C2_MspDeInit 1 */
 
   /* USER CODE END I2C2_MspDeInit 1 */
-  }
-
-}
-
-/**
-* @brief LCD MSP Initialization
-* This function configures the hardware resources used in this example
-* @param hlcd: LCD handle pointer
-* @retval None
-*/
-void HAL_LCD_MspInit(LCD_HandleTypeDef* hlcd)
-{
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-  if(hlcd->Instance==LCD)
-  {
-  /* USER CODE BEGIN LCD_MspInit 0 */
-
-  /* USER CODE END LCD_MspInit 0 */
-    /* Peripheral clock enable */
-    __HAL_RCC_LCD_CLK_ENABLE();
-
-    __HAL_RCC_GPIOC_CLK_ENABLE();
-    __HAL_RCC_GPIOA_CLK_ENABLE();
-    __HAL_RCC_GPIOB_CLK_ENABLE();
-    /**LCD GPIO Configuration
-    PC3     ------> LCD_VLCD
-    PA8     ------> LCD_COM0
-    PA9     ------> LCD_COM1
-    PA10     ------> LCD_COM2
-    PA15 (JTDI)     ------> LCD_SEG17
-    PB9     ------> LCD_COM3
-    */
-    GPIO_InitStruct.Pin = VLCD_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    GPIO_InitStruct.Alternate = GPIO_AF11_LCD;
-    HAL_GPIO_Init(VLCD_GPIO_Port, &GPIO_InitStruct);
-
-    GPIO_InitStruct.Pin = COM0_Pin|COM1_Pin|COM2_Pin|SEG10_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    GPIO_InitStruct.Alternate = GPIO_AF11_LCD;
-    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-    GPIO_InitStruct.Pin = COM3_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    GPIO_InitStruct.Alternate = GPIO_AF11_LCD;
-    HAL_GPIO_Init(COM3_GPIO_Port, &GPIO_InitStruct);
-
-  /* USER CODE BEGIN LCD_MspInit 1 */
-
-  /* USER CODE END LCD_MspInit 1 */
-  }
-
-}
-
-/**
-* @brief LCD MSP De-Initialization
-* This function freeze the hardware resources used in this example
-* @param hlcd: LCD handle pointer
-* @retval None
-*/
-void HAL_LCD_MspDeInit(LCD_HandleTypeDef* hlcd)
-{
-  if(hlcd->Instance==LCD)
-  {
-  /* USER CODE BEGIN LCD_MspDeInit 0 */
-
-  /* USER CODE END LCD_MspDeInit 0 */
-    /* Peripheral clock disable */
-    __HAL_RCC_LCD_CLK_DISABLE();
-
-    /**LCD GPIO Configuration
-    PC3     ------> LCD_VLCD
-    PA8     ------> LCD_COM0
-    PA9     ------> LCD_COM1
-    PA10     ------> LCD_COM2
-    PA15 (JTDI)     ------> LCD_SEG17
-    PB9     ------> LCD_COM3
-    */
-    HAL_GPIO_DeInit(VLCD_GPIO_Port, VLCD_Pin);
-
-    HAL_GPIO_DeInit(GPIOA, COM0_Pin|COM1_Pin|COM2_Pin|SEG10_Pin);
-
-    HAL_GPIO_DeInit(COM3_GPIO_Port, COM3_Pin);
-
-  /* USER CODE BEGIN LCD_MspDeInit 1 */
-
-  /* USER CODE END LCD_MspDeInit 1 */
   }
 
 }
@@ -557,6 +464,122 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
   /* USER CODE BEGIN USART2_MspDeInit 1 */
 
   /* USER CODE END USART2_MspDeInit 1 */
+  }
+
+}
+
+/**
+* @brief HCD MSP Initialization
+* This function configures the hardware resources used in this example
+* @param hhcd: HCD handle pointer
+* @retval None
+*/
+void HAL_HCD_MspInit(HCD_HandleTypeDef* hhcd)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+  if(hhcd->Instance==USB_OTG_FS)
+  {
+  /* USER CODE BEGIN USB_OTG_FS_MspInit 0 */
+
+  /* USER CODE END USB_OTG_FS_MspInit 0 */
+
+    __HAL_RCC_GPIOA_CLK_ENABLE();
+    /**USB_OTG_FS GPIO Configuration
+    PA11     ------> USB_OTG_FS_DM
+    PA12     ------> USB_OTG_FS_DP
+    */
+    GPIO_InitStruct.Pin = OTG_FS_DM_Pin|OTG_FS_DP_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+    GPIO_InitStruct.Alternate = GPIO_AF10_OTG_FS;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+    /* Peripheral clock enable */
+    __HAL_RCC_USB_OTG_FS_CLK_ENABLE();
+
+    /* Enable VDDUSB */
+    if(__HAL_RCC_PWR_IS_CLK_DISABLED())
+    {
+      __HAL_RCC_PWR_CLK_ENABLE();
+      HAL_PWREx_EnableVddUSB();
+      __HAL_RCC_PWR_CLK_DISABLE();
+    }
+    else
+    {
+      HAL_PWREx_EnableVddUSB();
+    }
+    /* USB_OTG_FS interrupt Init */
+    HAL_NVIC_SetPriority(OTG_FS_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(OTG_FS_IRQn);
+  /* USER CODE BEGIN USB_OTG_FS_MspInit 1 */
+
+  /* USER CODE END USB_OTG_FS_MspInit 1 */
+  }
+
+}
+
+/**
+* @brief HCD MSP De-Initialization
+* This function freeze the hardware resources used in this example
+* @param hhcd: HCD handle pointer
+* @retval None
+*/
+void HAL_HCD_MspDeInit(HCD_HandleTypeDef* hhcd)
+{
+  if(hhcd->Instance==USB_OTG_FS)
+  {
+  /* USER CODE BEGIN USB_OTG_FS_MspDeInit 0 */
+
+  /* USER CODE END USB_OTG_FS_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __HAL_RCC_USB_OTG_FS_CLK_DISABLE();
+
+    /**USB_OTG_FS GPIO Configuration
+    PA11     ------> USB_OTG_FS_DM
+    PA12     ------> USB_OTG_FS_DP
+    */
+    HAL_GPIO_DeInit(GPIOA, OTG_FS_DM_Pin|OTG_FS_DP_Pin);
+
+    /* Disable VDDUSB */
+    if(__HAL_RCC_PWR_IS_CLK_DISABLED())
+    {
+      __HAL_RCC_PWR_CLK_ENABLE();
+      HAL_PWREx_DisableVddUSB();
+      __HAL_RCC_PWR_CLK_DISABLE();
+    }
+    else
+    {
+      HAL_PWREx_DisableVddUSB();
+    }
+
+    /* USB_OTG_FS interrupt DeInit */
+    HAL_NVIC_DisableIRQ(OTG_FS_IRQn);
+  /* USER CODE BEGIN USB_OTG_FS_MspDeInit 1 */
+
+  /* USER CODE END USB_OTG_FS_MspDeInit 1 */
+  }
+
+}
+
+/**
+* @brief WWDG MSP Initialization
+* This function configures the hardware resources used in this example
+* @param hwwdg: WWDG handle pointer
+* @retval None
+*/
+void HAL_WWDG_MspInit(WWDG_HandleTypeDef* hwwdg)
+{
+  if(hwwdg->Instance==WWDG)
+  {
+  /* USER CODE BEGIN WWDG_MspInit 0 */
+
+  /* USER CODE END WWDG_MspInit 0 */
+    /* Peripheral clock enable */
+    __HAL_RCC_WWDG_CLK_ENABLE();
+  /* USER CODE BEGIN WWDG_MspInit 1 */
+
+  /* USER CODE END WWDG_MspInit 1 */
   }
 
 }

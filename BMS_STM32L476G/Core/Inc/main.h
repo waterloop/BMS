@@ -38,6 +38,44 @@ extern "C" {
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
 
+/* Operation Mode and Definitions */
+// #define LED_ENABLED
+#define TESTING_MODE
+#define numCells 14
+
+/* Private types */
+typedef enum {
+  Initialize,
+  Idle,
+  Precharging,
+  Run,
+  Stop,
+  Sleep,
+  NormalDangerFault,
+  SevereDangerFault,
+  Charging,
+  Charged,
+  Balancing
+} State_t;
+
+typedef struct {
+	uint16_t voltage;
+	uint8_t temperature;
+} Cell;
+
+typedef struct Battery {
+	uint16_t voltage;
+	uint16_t current;
+	uint8_t temperature;
+	Cell cells[numCells];
+} Battery;
+
+typedef State_t (*pfEvent)(void);
+
+typedef struct {
+	State_t State;
+	pfEvent Event;
+} StateMachine;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -54,7 +92,22 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
+State_t InitializeEvent(void);
+State_t IdleEvent(void);
+State_t PrechargingEvent(void);
+State_t RunEvent(void);
+State_t StopEvent(void);
+State_t SleepEvent(void);
+State_t NormalDangerFaultEvent(void);
+State_t SevereDangerFaultEvent(void);
+State_t ChargingEvent(void);
+State_t ChargedEvent(void);
+State_t BalancingEvent(void);
 
+void BatteryInit(void);
+uint16_t Get_Voltage(void);
+uint16_t Get_Current(void);
+uint8_t Get_Temperature(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
@@ -84,10 +137,16 @@ void Error_Handler(void);
 #define JOY_RIGHT_GPIO_Port GPIOA
 #define JOY_UP_Pin GPIO_PIN_3
 #define JOY_UP_GPIO_Port GPIOA
-#define MFX_WAKEUP_Pin GPIO_PIN_4
-#define MFX_WAKEUP_GPIO_Port GPIOA
 #define JOY_DOWN_Pin GPIO_PIN_5
 #define JOY_DOWN_GPIO_Port GPIOA
+#define TEMPERATURE_Pin GPIO_PIN_4
+#define TEMPERATURE_GPIO_Port GPIOC
+#define CURRENT_Pin GPIO_PIN_5
+#define CURRENT_GPIO_Port GPIOC
+#define VOLTAGE_Pin GPIO_PIN_0
+#define VOLTAGE_GPIO_Port GPIOB
+#define POT_VCC_Pin GPIO_PIN_1
+#define POT_VCC_GPIO_Port GPIOB
 #define LD_R_Pin GPIO_PIN_2
 #define LD_R_GPIO_Port GPIOB
 #define AUDIO_DIN_Pin GPIO_PIN_7
@@ -112,14 +171,20 @@ void Error_Handler(void);
 #define MFX_I2C_SLC_GPIO_Port GPIOB
 #define MFX_I2C_SDA_Pin GPIO_PIN_11
 #define MFX_I2C_SDA_GPIO_Port GPIOB
+#define Contactor_Pin GPIO_PIN_12
+#define Contactor_GPIO_Port GPIOB
+#define Charge_Pin GPIO_PIN_13
+#define Charge_GPIO_Port GPIOB
+#define Start_Pin GPIO_PIN_14
+#define Start_GPIO_Port GPIOB
+#define Stop_Pin GPIO_PIN_15
+#define Stop_GPIO_Port GPIOB
+#define LED_Pin GPIO_PIN_8
+#define LED_GPIO_Port GPIOD
+#define Reset_Pin GPIO_PIN_9
+#define Reset_GPIO_Port GPIOD
 #define OTG_FS_PowerSwitchOn_Pin GPIO_PIN_9
 #define OTG_FS_PowerSwitchOn_GPIO_Port GPIOC
-#define COM0_Pin GPIO_PIN_8
-#define COM0_GPIO_Port GPIOA
-#define COM1_Pin GPIO_PIN_9
-#define COM1_GPIO_Port GPIOA
-#define COM2_Pin GPIO_PIN_10
-#define COM2_GPIO_Port GPIOA
 #define OTG_FS_DM_Pin GPIO_PIN_11
 #define OTG_FS_DM_GPIO_Port GPIOA
 #define OTG_FS_DP_Pin GPIO_PIN_12
@@ -128,8 +193,6 @@ void Error_Handler(void);
 #define SWDIO_GPIO_Port GPIOA
 #define SWCLK_Pin GPIO_PIN_14
 #define SWCLK_GPIO_Port GPIOA
-#define SEG10_Pin GPIO_PIN_15
-#define SEG10_GPIO_Port GPIOA
 #define OTG_FS_OverCurrent_Pin GPIO_PIN_10
 #define OTG_FS_OverCurrent_GPIO_Port GPIOC
 #define OTG_FS_VBUS_Pin GPIO_PIN_11
@@ -158,14 +221,18 @@ void Error_Handler(void);
 #define I2C1_SDA_GPIO_Port GPIOB
 #define GYRO_INT2_Pin GPIO_PIN_8
 #define GYRO_INT2_GPIO_Port GPIOB
-#define COM3_Pin GPIO_PIN_9
-#define COM3_GPIO_Port GPIOB
 #define XL_CS_Pin GPIO_PIN_0
 #define XL_CS_GPIO_Port GPIOE
 #define XL_INT_Pin GPIO_PIN_1
 #define XL_INT_GPIO_Port GPIOE
 /* USER CODE BEGIN Private defines */
-
+// Arbitrary values, get values from the Electrical team.
+#define SevereDangerVoltage 55000
+#define NormalDangerVoltage 53000
+#define SevereDangerCurrent 30000
+#define NormalDangerCurrent 25000
+#define SevereDangerTemperature 60
+#define NormalDangerTemperature 50
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
