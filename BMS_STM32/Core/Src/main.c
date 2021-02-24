@@ -25,6 +25,7 @@
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
 #include <string.h>
+#include <assert.h>
 #include "led.h"
 /* USER CODE END Includes */
 
@@ -181,7 +182,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   BatteryInit();
   /* USER CODE END 2 */
-  HAL_UART_Transmit(&huart2, "Hello World\n", 12, 0xFFFF);
+
   /* Init scheduler */
   osKernelInitialize();
 
@@ -191,6 +192,7 @@ int main(void)
 
   /* Create the semaphores(s) */
   /* creation of BinSem */
+
   BinSemHandle = osSemaphoreNew(1, 1, &BinSem_attributes);
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */
@@ -228,7 +230,11 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  uint8_t returnedData;
+	  LTC681x_rdcv_reg(1, 1, &returnedData);
+	  char dataM[100];
+	  sprintf(dataM, "Data received %s\r\n", returnedData);
+	  HAL_UART_Transmit(&huart2, (uint8_t*)dataM, strlen(dataM), 500);
     /* USER CODE BEGIN 3 */
 
   }
@@ -245,13 +251,25 @@ void SystemClock_Config(void)
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
   RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
+  /** Configure LSE Drive Capability
+  */
+  HAL_PWR_EnableBkUpAccess();
+  __HAL_RCC_LSEDRIVE_CONFIG(RCC_LSEDRIVE_LOW);
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSE|RCC_OSCILLATORTYPE_MSI;
+  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
+  RCC_OscInitStruct.MSIState = RCC_MSI_ON;
+  RCC_OscInitStruct.MSICalibrationValue = 0;
+  RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_11;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_MSI;
+  RCC_OscInitStruct.PLL.PLLM = 3;
+  RCC_OscInitStruct.PLL.PLLN = 10;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV7;
+  RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
+  RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -260,20 +278,20 @@ void SystemClock_Config(void)
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
   {
     Error_Handler();
   }
   PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART2|RCC_PERIPHCLK_ADC;
   PeriphClkInit.Usart2ClockSelection = RCC_USART2CLKSOURCE_PCLK1;
   PeriphClkInit.AdcClockSelection = RCC_ADCCLKSOURCE_PLLSAI1;
-  PeriphClkInit.PLLSAI1.PLLSAI1Source = RCC_PLLSOURCE_HSI;
-  PeriphClkInit.PLLSAI1.PLLSAI1M = 1;
+  PeriphClkInit.PLLSAI1.PLLSAI1Source = RCC_PLLSOURCE_MSI;
+  PeriphClkInit.PLLSAI1.PLLSAI1M = 3;
   PeriphClkInit.PLLSAI1.PLLSAI1N = 8;
   PeriphClkInit.PLLSAI1.PLLSAI1P = RCC_PLLP_DIV7;
   PeriphClkInit.PLLSAI1.PLLSAI1Q = RCC_PLLQ_DIV2;
@@ -289,6 +307,9 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+  /** Enable MSI Auto calibration
+  */
+  HAL_RCCEx_EnableMSIPLLMode();
 }
 
 /**
@@ -575,10 +596,18 @@ void StartMeasurements(void *argument)
   /* Infinite loop */
   for(;;)
   {
+	  StateMachineTest();
+	  if (HAL_ADC_Start(&hadc1) != HAL_OK) {
+	  		Error_Handler();
+	  	}
+	  	if (HAL_ADC_PollForConversion(&hadc1, 10) != HAL_OK) {
+	  		Error_Handler();
+	  	}
+	  	/* Measure Battery Pack voltage, current, temperature every 200 milliseconds */
+	  	BatteryPack.temperature = HAL_ADC_GetValue(&hadc1)*100/4096;
 	/* Measure Battery Pack voltage, current, temperature every 200 milliseconds */
 	BatteryPack.voltage = 51800; // Should change to a function that grabs data
 	BatteryPack.current = 20000; // Should change to a function that grabs data
-	BatteryPack.temperature = 30; // Should change to a function that grabs data
 	char dataM[100];
 	sprintf(dataM, "Voltage: %dmV,  Current: %dmA,  Temperature: %d˚C\r\n", BatteryPack.voltage, BatteryPack.current, BatteryPack.temperature);
 	HAL_UART_Transmit(&huart2, (uint8_t*)dataM, strlen(dataM), 500);
@@ -590,6 +619,138 @@ void StartMeasurements(void *argument)
     osDelay(200);
   }
   /* USER CODE END 5 */
+}
+
+/* USER CODE BEGIN Header_StateMachineTest */
+/**
+* @brief Ensure that all pins are working and states transitions are correct
+* @retval None
+*/
+/* USER CODE END Header_StateMachineTest */
+void StateMachineTest(void) {
+
+	State_t InitialOld = OldState;
+	State_t InitialCurrent = CurrentState;
+	State_t result;
+
+	// Initialize event
+	OldState = Sleep;
+	CurrentState = Initialize;
+	result = (*SM[CurrentState].Event)();
+	if (result == Idle) {
+		HAL_UART_Transmit(&huart2, "True", strlen("True"), 500);
+	} else {
+		HAL_UART_Transmit(&huart2, "False", strlen("False"), 500);
+	}
+
+//	// Idle event
+//	OldState = Initialize;
+//	CurrentState = Idle;
+//	result = (*SM[CurrentState].Event)();
+//	assert(result == Idle);
+//
+//	OldState = Initialize;
+//	CurrentState = Idle;
+//	HAL_GPIO_WritePin(Start_GPIO_Port, Start_Pin, GPIO_PIN_SET);
+//	result = (*SM[CurrentState].Event)();
+//	assert(result == Precharging);
+//
+//	OldState = Initialize;
+//	CurrentState = Idle;
+//	HAL_GPIO_WritePin(Start_GPIO_Port, Charge_Pin, GPIO_PIN_SET);
+//	result = (*SM[CurrentState].Event)();
+//	assert(result == Charging);
+//
+//	OldState = Initialize;
+//	CurrentState = Idle;
+//	HAL_GPIO_WritePin(Start_GPIO_Port, Stop_Pin, GPIO_PIN_SET);
+//	result = (*SM[CurrentState].Event)();
+//	assert(result == Sleep);
+//
+//	// Precharging event
+//	OldState = Idle;
+//	CurrentState = Precharging;
+//	result = (*SM[CurrentState].Event)();
+//	assert(result == Run);
+//
+//	// Charging event
+//	OldState = Idle;
+//	CurrentState = Charging;
+//	result = (*SM[CurrentState].Event)();
+//	if (BatteryPack.voltage > 51600) {
+//		assert(result == Charged);
+//	} else {
+//		assert(result == Charging);
+//	}
+//
+//	// Sleep Event
+//	OldState = Idle;
+//	CurrentState = Sleep;
+//	result = (*SM[CurrentState].Event)();
+//	assert(result == Sleep);
+//
+//	OldState = Idle;
+//	CurrentState = Sleep;
+//	HAL_GPIO_WritePin(Reset_GPIO_Port, Reset_Pin, GPIO_PIN_SET);
+//	result = (*SM[CurrentState].Event)();
+//	assert(result == Idle);
+//
+//	//Run event
+//	OldState = Precharging;
+//	CurrentState = Run;
+//	result = (*SM[CurrentState].Event)();
+//	assert(result == Run);
+//
+//	OldState = Precharging;
+//	CurrentState = Run;
+//	HAL_GPIO_WritePin(Stop_GPIO_Port, Stop_Pin, GPIO_PIN_SET);
+//	result = (*SM[CurrentState].Event)();
+//	assert(result == Stop);
+//
+//	//Charged event
+//	OldState = Charging;
+//	CurrentState = Charged;
+//	result = (*SM[CurrentState].Event)();
+//	assert(result == Charged);
+//
+//	OldState = Charging;
+//	CurrentState = Charged;
+//	HAL_GPIO_WritePin(Reset_GPIO_Port, Reset_Pin, GPIO_PIN_SET);
+//	result = (*SM[CurrentState].Event)();
+//	assert(result == Idle);
+//
+//	//Stop event
+//	OldState = Run;
+//	CurrentState = Stop;
+//	result = (*SM[CurrentState].Event)();
+//	assert(result == Stop);
+//
+//	OldState = Run;
+//	CurrentState = Stop;
+//	HAL_GPIO_WritePin(Reset_GPIO_Port, Reset_Pin, GPIO_PIN_SET);
+//	result = (*SM[CurrentState].Event)();
+//	assert(result == Idle);
+//
+//	// NormalDangerFault Event
+//	OldState = Run;
+//	CurrentState = NormalDangerFault;
+//	result = (*SM[CurrentState].Event)();
+//	assert(result == NormalDangerFault);
+//
+//	OldState = Run;
+//	CurrentState = NormalDangerFault;
+//	HAL_GPIO_WritePin(Reset_GPIO_Port, Reset_Pin, GPIO_PIN_SET);
+//	result = (*SM[CurrentState].Event)();
+//	assert(result == Idle);
+//	printf("here");
+//	// SevereDangerFault Event
+//	OldState = Run;
+//	CurrentState = SevereDangerFault;
+//	result = (*SM[CurrentState].Event)();
+//	assert(result == SevereDangerFault);
+//
+	OldState = InitialOld;
+	CurrentState = InitialCurrent;
 }
 
 /* USER CODE BEGIN Header_StartStateMachine */
@@ -605,6 +766,7 @@ void StartStateMachine(void *argument)
   /* Infinite loop */
   for(;;)
   {
+	 StateMachineTest();
 	// Print CurrentState in serial terminal if the state changes
 	if (OldState != CurrentState) {
 		char dataState[100];
