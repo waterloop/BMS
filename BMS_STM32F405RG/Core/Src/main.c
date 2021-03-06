@@ -6,7 +6,7 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
+  * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
   * All rights reserved.</center></h2>
   *
   * This software component is licensed by ST under BSD 3-Clause license,
@@ -236,17 +236,20 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(RED_GPIO_Port, RED_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, RED_Pin|Contactor_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, LED_CTRL_Pin|BLUE_Pin|GREEN_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : RED_Pin */
-  GPIO_InitStruct.Pin = RED_Pin;
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOC, Reset_Pin|Charge_Pin|Stop_Pin|Start_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : RED_Pin Contactor_Pin */
+  GPIO_InitStruct.Pin = RED_Pin|Contactor_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(RED_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : LED_CTRL_Pin BLUE_Pin GREEN_Pin */
   GPIO_InitStruct.Pin = LED_CTRL_Pin|BLUE_Pin|GREEN_Pin;
@@ -254,6 +257,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : Reset_Pin Charge_Pin Stop_Pin Start_Pin */
+  GPIO_InitStruct.Pin = Reset_Pin|Charge_Pin|Stop_Pin|Start_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
 }
 

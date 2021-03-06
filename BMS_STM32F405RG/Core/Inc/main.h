@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
+  * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
   * All rights reserved.</center></h2>
   *
   * This software component is licensed by ST under BSD 3-Clause license,
@@ -62,6 +62,16 @@ void Error_Handler(void);
 #define RED_GPIO_Port GPIOA
 #define LED_CTRL_Pin GPIO_PIN_0
 #define LED_CTRL_GPIO_Port GPIOB
+#define Reset_Pin GPIO_PIN_6
+#define Reset_GPIO_Port GPIOC
+#define Charge_Pin GPIO_PIN_7
+#define Charge_GPIO_Port GPIOC
+#define Stop_Pin GPIO_PIN_8
+#define Stop_GPIO_Port GPIOC
+#define Start_Pin GPIO_PIN_9
+#define Start_GPIO_Port GPIOC
+#define Contactor_Pin GPIO_PIN_8
+#define Contactor_GPIO_Port GPIOA
 #define BLUE_Pin GPIO_PIN_5
 #define BLUE_GPIO_Port GPIOB
 #define GREEN_Pin GPIO_PIN_7
