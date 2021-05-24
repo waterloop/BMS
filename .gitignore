@@ -2,3 +2,7 @@
 */Debug
 .metadata
 .DS_Store
+*.xml
+BMS_STM32L432KC/.settings/stm32cubeide.project.prefs
+BMS_STM32L476G/.settings/stm32cubeide.project.prefs
+.project
